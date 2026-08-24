@@ -7,12 +7,12 @@ import { getCollection } from 'astro:content';
 const guides = (await getCollection('guides')).sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0));
 ---
 <BaseLayout
-  title="Industrial Hose Selection Guides"
-  description="Practical guides on picking the right industrial hose — food grade, PTFE, chemical, hydraulic, silicone and more. Material selection, standards and duty sizing."
+  title="Camlock Selection Guides — Types, Sizes, Pressure, Materials"
+  description="Practical guides on picking the right camlock — types A-F/DC/DP, size charts, pressure ratings, materials and gaskets. Standards, compatibility and duty sizing."
 >
   <PageHero
     title="Selection Guides"
-    subtitle="Short, practical walkthroughs on picking the right hose for the duty."
+    subtitle="Short, practical walkthroughs on picking the right coupling for the duty."
     breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Guides' }]}
   />
 

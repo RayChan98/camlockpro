@@ -1,46 +1,41 @@
-# CAMLOCKPRO HOSES — 工业软管 B2B 外贸站（T-47）
+# CAMLOCKPRO — Camlock 快速接头 B2B 独立站
 
-> 域名：camlockprohose.com（2026-08-24 实测无 DNS 可注册，走 CF Registrar；当前 pages.dev 顶着）
-> 品牌：CamlockPro — Food Grade, PTFE and Industrial Hoses（食品级旗舰 + PTFE 次旗舰）
-> 技术栈：Astro 7.0.6 + Tailwind v4.3.2（clone nozzle-site-v2 同栈兄弟站骨架）
-> 状态：品牌定名 ✅ / 竞对调研 ✅ / 内容骨架 ✅（8 产品 + 7 guides）/ 表单打通 ✅（Zoho OAuth2 ok:true）/ 部署 ✅ https://camlockpro-site.pages.dev（28 页全 200）
-> Git 归属：个人兼职 → RayChan98（cj226144）个人号，禁 grohoprecision-hub
+> 域名：**camlockpro.com**（2026-08-23 拟定，待主人/总控注册，当前 **https://camlockpro.pages.dev** 顶着）
+> 品牌：CamlockPro — Cam and Groove Couplings（凸轮锁紧快速接头）
+> 技术栈：Astro 7 + Tailwind v4（照 fullcolorcam 原生模式，**不 clone molditquick**）
+> 状态：✅ 已上线（25→31 页全 200）/ 表单 Zoho ok:true / sitemap 24 条 / 死链 0
+> 归属：**个人兼职线**（git 仓 RayChan98/camlockpro，禁 grohoprecision-hub）
 
 ## 决策记录
 
 | 日期 | 决策 |
 |:--|:--|
-| 2026-08-24 | 品牌 = CamlockPro（camlockprohose.com 可注册，零黑历史）|
-| 2026-08-24 | 旗舰 = Food Grade Hose（SERP 中国厂空白），次旗舰 = PTFE Hose（+68% 增长）|
-| 2026-08-24 | clone nozzle-site-v2 骨架（同栈 Astro7+TWv4 工业流体品类最匹配）|
-| 2026-08-24 | 表单 = Zoho OAuth2（复用 PLEATPURE 同套凭据，FROM=raychan@pleatpure.com → TO=cj226144@gmail.com）|
-| 2026-08-24 | 色板/LOGO 后置（内容先行，随时可换）|
+| 2026-08-23 | T-41 候选池开群（7 维重估 86 分），M1 三查完成（303 词池/主词+45%/+104%），建议做 |
+| 2026-08-23 | 夜间预跑①②③④完成（竞对清单 25+ 域名三分类/内容策略 8 页面类型/8 词簇提炼/范本自审 19/20） |
+| 2026-08-23 | 建站：clone pureflow-hose-site 换肤 CamlockPro（30 文件零残留），CF 个人号部署 |
+| 2026-08-23 | 建站边界：材质（铝/SS/黄铜/PP）×类型（A-F/DC/DP）×尺寸（1/2"-6"）选型矩阵站 |
 
-## 站点结构（28 页）
+## 关键资产
 
-- 首页 `/`：Hero + 8 产品分类网格 + Why CamlockPro + 最新指南
-- 产品页 ×8：`/products/{food-grade,ptfe,chemical-transfer,hydraulic,silicone,suction-discharge,stainless-braided,hose-assemblies}/`
-- 指南 ×7：`/guides/{food-grade-hose-selection,ptfe-hose-guide,chemical-hose-selection,hydraulic-hose-selection,silicone-hose-selection,suction-hose-selection,hose-assembly-guide}/`
-- 核心页：About / Applications / OEM / Contact / Author / Thank-you
-- 信任页：Terms / Privacy / Cookie
+- 竞对清单：`F:/kravzik建站信息/Hermes全自动网站运营/选品研究/候选产品池/T-41-Camlock快接/02-竞对主域名清单.md`
+- 内容策略：同目录 `03-竞对内容策略分析.md` + `04-页面内容提炼.md`（8 词簇×8 骨架）
+- 范本自审：同目录 `05-范本自审记录.md` + `范本/camlock-coupling-types-guide.md`
+- 选品报告：同目录 `01-选品报告-Camlock快接-M1.md`
 
-## 内容来源
+## 技术要点（换肤坑，防复踩）
 
-- 产品/指南内容：`夜间预跑/03-页面内容提炼.md`（竞对 Orientflex/Besteflon/Viking 页面骨架提炼改写）
-- 关键词：竞对页面提炼（food grade hose / ptfe hose / chemical transfer hose 等 11 簇）
-- 口径红线：卖「纯净输送/认证/材质选型」，禁绝对化（软管=耗材）
-
-## 部署
-
-- CF Pages 项目：`camlockpro-site`（个人号账号 93eb74c...，production_branch=main）
-- 部署命令：`HTTPS_PROXY=http://127.0.0.1:7897 CLOUDFLARE_API_TOKEN=$CF_PERSONAL_TOKEN CLOUDFLARE_ACCOUNT_ID=93eb74c... npx wrangler pages deploy dist --project-name=camlockpro-site`
-- Zoho env 6 件套：PATCH 自 PLEATPURE 同套（ACCOUNT_ID/CLIENT_ID/SECRET/REFRESH_TOKEN/FROM/TO）
-- 表单实测：`curl -X POST https://camlockpro-site.pages.dev/api/contact -d "name=..&email=..&message=.."` → `{"ok":true}`
+- clone 兄弟站后 **astro.config.mjs site:** + **robots.txt Sitemap:** + public 孤儿品牌文件三处必改，否则 sitemap 域名错
+- content.config.ts 产品 `category` enum 必须先行改（产品 md 才跟得上）
+- frontmatter 值含 `"`（如 1/2"）→ 用单引号包裹或转义，否则 js-yaml 崩
+- pf-* 类前缀是品牌专属（scoped 组件样式），换肤时定义与用法一起改
+- CF Pages 个人号：`CF_PERSONAL_TOKEN`/`CF_PERSONAL_ACCOUNT_ID`（.env），wrangler 需 export HTTPS_PROXY=7897
 
 ## 待办
 
-- [ ] 主人注册域名 camlockprohose.com（走 CF Registrar）
-- [ ] 色板/LOGO 定稿（内容先行已满足，随时可换）
-- [ ] 上线前 on-page SEO + technical SEO 检查（大范围）
-- [ ] 记录表录入（飞书网站记录表，对齐 fullcolorcam）
-- [ ] 内容增量：每产品类补 guide（对标 jeltecn 做法）+ 榜文「Top 10 Food Grade Hose Manufacturers」外链饵
+- [ ] 主人/总控注册 camlockpro.com（走 CF Registrar）→ canonical 自动生效
+- [ ] git push（github.com 被墙瞬态，api 通主站不通，恢复后推 RayChan98/camlockpro）
+- [ ] 内容增量：剩余词簇指南（燃料/食品级/水/消防/IBC 应用 + Top10 listicle 外链饵）
+- [ ] 核心词 ≥3000 字深度指南扩充（类型指南扩到 3000+）
+- [ ] 飞书网站记录表（seo-page-tracker 批量录入）
+- [ ] on-page/technical SEO 终检（title/desc/canonical 已过，补 structured data 复核）
+- [ ] 产品图管线（素材后置，色板/LOGO 随时可换）
