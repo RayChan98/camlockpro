@@ -3,7 +3,7 @@
 > 域名：**camlockpro.com**（2026-08-23 拟定，待主人/总控注册，当前 **https://camlockpro.pages.dev** 顶着）
 > 品牌：CamlockPro — Cam and Groove Couplings（凸轮锁紧快速接头）
 > 技术栈：Astro 7 + Tailwind v4（照 fullcolorcam 原生模式，**不 clone molditquick**）
-> 状态：✅ 已上线（25→31 页全 200）/ 表单 Zoho ok:true / sitemap 24 条 / 死链 0
+> 状态：✅ 已上线（36 页全 200）/ 表单 Zoho ok:true / sitemap 36 条 / 死链 0
 > 归属：**个人兼职线**（git 仓 RayChan98/camlockpro，禁 grohoprecision-hub）
 
 ## 决策记录
@@ -34,7 +34,7 @@
 
 - [ ] 主人/总控注册 camlockpro.com（走 CF Registrar）→ canonical 自动生效
 - [ ] git push（github.com 被墙瞬态，api 通主站不通，恢复后推 RayChan98/camlockpro）
-- [ ] 内容增量：剩余词簇指南（燃料/食品级/水/消防/IBC 应用 + Top10 listicle 外链饵）
+- [x] 内容增量（2026-08-25）：燃料/食品级/水/消防/IBC 应用 5 篇 + Top10 manufacturers listicle 完成（9 指南 + 7 产品 = 36 页）
 - [ ] 核心词 ≥3000 字深度指南扩充（类型指南扩到 3000+）
 - [ ] 飞书网站记录表（seo-page-tracker 批量录入）
 - [ ] on-page/technical SEO 终检（title/desc/canonical 已过，补 structured data 复核）
