@@ -1,0 +1,113 @@
+/* ============================================================
+   CAMLOCKPRO GLOBAL CSS — 仅基础重置 + 少量全局工具
+   铁律: 组件样式尽量写 scoped <style>(官方推荐), 全局只放:
+   1. 元素重置  2. 字体/颜色基础  3. 深底白字规则  4. 防横向溢出
+   ============================================================ */
+@import "tailwindcss";
+@import "./tokens.css";
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ===== 防全站横向溢出(官方布局最佳实践: 视口钳制) ===== */
+html { overflow-x: clip; }
+body { overflow-x: clip; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-surface-1);
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--fs-body);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--color-ink);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+img { max-width: 100%; height: auto; }
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== 深底白字铁律 ===== */
+.bg-base-900 h1, .bg-base-900 h2, .bg-base-900 h3,
+.bg-base-850 h1, .bg-base-850 h2, .bg-base-850 h3 {
+  color: #fff;
+}
+
+/* ===== 显式工具类(补 Tailwind v4 @theme 可能不生成 bg-base-* 的坑) ===== */
+.bg-base-900 { background-color: var(--color-base-900); }
+.bg-base-850 { background-color: var(--color-base-850); }
+.bg-base-800 { background-color: var(--color-base-800); }
+
+/* ===== 通用容器 ===== */
+.kv-container {
+  width: 100%;
+  max-width: var(--kv-container);
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+  .kv-container { padding-left: 2rem; padding-right: 2rem; }
+}
+@media (min-width: 1024px) {
+  .kv-container { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+
+/* ===== 按钮(kv-btn 统一风格, 全站 CTA 用) ===== */
+.kv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--kv-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.kv-btn:hover { text-decoration: none; }
+
+.kv-btn--primary {
+  background: var(--color-brand-primary);
+  color: var(--color-text-on-brand);
+  border-color: var(--color-brand-primary);
+}
+.kv-btn--primary:hover { background: var(--pr-orange-600); border-color: var(--pr-orange-600); }
+
+.kv-btn--secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.kv-btn--secondary:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.4); }
+
+.kv-btn--outline {
+  background: transparent;
+  color: var(--color-brand);
+  border-color: var(--color-brand);
+}
+.kv-btn--outline:hover { background: var(--color-brand); color: #fff; }
+
+.kv-btn--sm { min-height: 36px; padding: 0.5rem 1rem; font-size: 0.875rem; }
+.kv-btn--lg { min-height: 52px; padding: 0.875rem 2rem; font-size: 1.0625rem; }
+
+.kv-btn svg { width: 1em; height: 1em; flex-shrink: 0; }
+
+/* ===== 移动端 CTA 全宽 ===== */
+@media (max-width: 767px) {
+  .kv-btn--block-mobile { width: 100%; }
+}

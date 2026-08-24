@@ -1,0 +1,38 @@
+---
+// CtaButton — 全站统一 CTA(官方组件模式: Props 驱动 + class:list)
+import Icon from './Icon.astro';
+
+interface Props {
+  href: string;
+  label: string;
+  tone?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  icon?: 'arrowRight' | 'arrowUp' | 'check' | 'phone' | 'mail' | 'whatsapp' | 'chevronDown';
+  iconPos?: 'left' | 'right';
+  blockMobile?: boolean;
+  class?: string;
+}
+const {
+  href,
+  label,
+  tone = 'primary',
+  size = 'md',
+  icon,
+  iconPos = 'right',
+  blockMobile = false,
+  class: className = '',
+} = Astro.props;
+
+const btnClass = [
+  'kv-btn',
+  `kv-btn--${tone}`,
+  `kv-btn--${size}`,
+  blockMobile ? 'kv-btn--block-mobile' : '',
+  className,
+].filter(Boolean).join(' ');
+---
+<a href={href} class={btnClass}>
+  {icon && iconPos === 'left' && <Icon name={icon} />}
+  <span>{label}</span>
+  {icon && iconPos === 'right' && <Icon name={icon} />}
+</a>

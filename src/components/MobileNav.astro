@@ -1,0 +1,102 @@
+---
+// MobileNav — 移动端抽屉菜单(官方最佳实践: scoped 样式 + inline onclick 全局函数)
+// 左滑 translateX(-100%) 全屏覆盖(工业蓝深底), 手风琴分类
+import { NAV, CATEGORIES } from '../config';
+import Icon from './ui/Icon.astro';
+
+const groups = NAV.map((n) =>
+  n.label === 'Products'
+    ? { label: n.label, href: n.href, items: CATEGORIES.map((c) => ({ label: c.label, href: `/products/${c.slug}/` })) }
+    : { label: n.label, href: n.href }
+);
+---
+<div class="mn-backdrop" id="mn-backdrop" onclick="window.mnClose()"></div>
+<nav class="mn-drawer" id="mn-drawer" aria-label="Mobile">
+  <div class="mn-drawer__head">
+    <img src="/camlockpro-logo-vertical.svg" alt="CamlockPro" width="120" height="32" />
+    <button class="mn-drawer__close" onclick="window.mnClose()" aria-label="Close menu">
+      <Icon name="close" size={22} />
+    </button>
+  </div>
+  <ul class="mn-nav">
+    {groups.map((g, i) =>
+      g.items ? (
+        <li class="mn-nav__item">
+          <button class="mn-nav__acc" onclick={`window.mnAcc(this)`} aria-expanded="false">
+            <span>{g.label}</span>
+            <Icon name="chevronDown" size={16} />
+          </button>
+          <ul class="mn-nav__sub">
+            {g.items.map((it) => (
+              <li><a href={it.href} onclick="window.mnClose()">{it.label}</a></li>
+            ))}
+          </ul>
+        </li>
+      ) : (
+        <li class="mn-nav__item">
+          <a href={g.href} onclick="window.mnClose()">{g.label}</a>
+        </li>
+      )
+    )}
+  </ul>
+  <div class="mn-drawer__foot">
+    <a class="kv-btn kv-btn--primary kv-btn--block-mobile" href="/contact/" onclick="window.mnClose()">
+      Request a Quote
+    </a>
+    <p class="mn-drawer__contact">
+      <a href="mailto:cj226144@gmail.com">cj226144@gmail.com</a> · <a href="tel:+8613710860663">+86 137 1086 0663</a>
+    </p>
+  </div>
+</nav>
+
+<style>
+  .mn-backdrop {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(7, 49, 77, 0.5);
+    opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .mn-backdrop.is-open { opacity: 1; visibility: visible; }
+
+  .mn-drawer {
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: 210;
+    width: min(20rem, 85vw);
+    background: var(--color-base-900);
+    color: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+  .mn-drawer.is-open { transform: translateX(0); }
+
+  .mn-drawer__head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .mn-drawer__close { background: none; border: 0; color: #fff; cursor: pointer; padding: 0.25rem; }
+
+  .mn-nav { list-style: none; margin: 0; padding: 0.5rem 0; }
+  .mn-nav__item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mn-nav__item > a,
+  .mn-nav__acc {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 0.875rem 1.25rem;
+    font-size: 1rem; font-weight: 500; color: #fff;
+    background: none; border: 0; cursor: pointer; text-align: left;
+  }
+  .mn-nav__item > a:hover, .mn-nav__acc:hover { background: rgba(255,255,255,0.06); text-decoration: none; }
+  .mn-nav__acc svg { transition: transform 0.2s ease; }
+  .mn-nav__acc.open svg { transform: rotate(180deg); }
+
+  .mn-nav__sub { display: none; list-style: none; margin: 0; padding: 0 0 0.5rem; background: rgba(0,0,0,0.15); }
+  .mn-nav__sub.open { display: block; }
+  .mn-nav__sub a {
+    display: block; padding: 0.625rem 1.25rem 0.625rem 2.25rem;
+    font-size: 0.9375rem; color: rgba(255,255,255,0.85);
+  }
+  .mn-nav__sub a:hover { color: #fff; text-decoration: none; }
+
+  .mn-drawer__foot { margin-top: auto; padding: 1.25rem; }
+  .mn-drawer__contact { margin: 0.75rem 0 0; font-size: 0.8125rem; color: rgba(255,255,255,0.7); }
+  .mn-drawer__contact a { color: rgba(255,255,255,0.85); }
+</style>

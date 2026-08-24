@@ -1,0 +1,173 @@
+---
+// Hero — 首页首屏(官方最佳实践: 组件化 + Props 驱动 + scoped 样式 + 移动优先)
+// 结构: 工业蓝渐变背景 → 左文(badge/H1/lead/双CTA/数据栏) + 右3D喷嘴视觉(桌面显/移动隐)
+import Icon from './ui/Icon.astro';
+
+interface Props {
+  eyebrow?: string;
+  titleHtml?: string;
+  lead?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  stats?: { value: string; label: string }[];
+}
+const { eyebrow, titleHtml = '', lead = '', primaryCta, secondaryCta, stats = [] } = Astro.props;
+---
+<section class="cp-hero">
+  <div class="kv-container cp-hero__inner">
+    <div class="cp-hero__content">
+      {eyebrow && (
+        <p class="cp-hero__badge">
+          <Icon name="check" size={15} class="cp-hero__badge-icon" />
+          <span>{eyebrow}</span>
+        </p>
+      )}
+      <h1 class="cp-hero__title" set:html={titleHtml} />
+      {lead && <p class="cp-hero__lead">{lead}</p>}
+      {(primaryCta || secondaryCta) && (
+        <div class="cp-hero__cta">
+          {primaryCta && (
+            <a href={primaryCta.href} class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">
+              <span>{primaryCta.label}</span>
+              <Icon name="arrowRight" size={18} />
+            </a>
+          )}
+          {secondaryCta && (
+            <a href={secondaryCta.href} class="kv-btn kv-btn--secondary kv-btn--lg kv-btn--block-mobile">
+              <span>{secondaryCta.label}</span>
+              <Icon name="arrowRight" size={18} />
+            </a>
+          )}
+        </div>
+      )}
+      {stats.length > 0 && (
+        <div class="cp-hero__stats">
+          {stats.map((s) => (
+            <span class="cp-hero__stat">
+              <span class="cp-hero__stat-value">{s.value}</span>
+              <span class="cp-hero__stat-label">{s.label}</span>
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div class="cp-hero__visual" aria-hidden="true">
+      <div class="cp-hero__card">
+        <div class="cp-hero__grid"></div>
+        <svg viewBox="0 0 300 260" fill="none" class="cp-hero__svg">
+          <defs>
+            <linearGradient id="bjMetal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1565a0" />
+              <stop offset="55%" stop-color="#0b5d8f" />
+              <stop offset="100%" stop-color="#07314d" />
+            </linearGradient>
+            <linearGradient id="bjAccent" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#3b9ede" />
+              <stop offset="100%" stop-color="#0b5d8f" />
+            </linearGradient>
+          </defs>
+          <path d="M70 90 L150 55 L230 90 L230 160 L150 195 L70 160 Z" fill="url(#bjMetal)" stroke="#5b7a9c" stroke-width="1.5" />
+          <path d="M70 90 L70 120 L150 155 L150 125 Z" fill="#0e4780" stroke="#5b7a9c" stroke-width="1.2" />
+          <path d="M230 90 L230 120 L150 155 L150 125 Z" fill="#07314d" stroke="#5b7a9c" stroke-width="1.2" />
+          <path d="M95 100 L150 75 L205 100 L150 125 Z" fill="#07314d" stroke="url(#bjAccent)" stroke-width="1.5" />
+          <circle cx="150" cy="100" r="10" fill="#07314d" stroke="url(#bjAccent)" stroke-width="1.5" />
+          <circle cx="120" cy="92" r="4" fill="#07314d" stroke="#5b7a9c" stroke-width="1" />
+          <circle cx="180" cy="92" r="4" fill="#07314d" stroke="#5b7a9c" stroke-width="1" />
+          <path d="M70 90 L40 60 M230 90 L260 60" stroke="#f59e0b" stroke-width="1.2" />
+          <text x="22" y="56" fill="#f59e0b" font-size="12" font-family="monospace">±0.01</text>
+          <text x="248" y="56" fill="#f59e0b" font-size="12" font-family="monospace">Ø12.0</text>
+        </svg>
+        <div class="cp-hero__statusbar">
+          <span>ISO 9001 · OEM to Drawing</span>
+          <span class="cp-hero__status-right">±0.01 mm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-hero {
+    background: linear-gradient(120deg, var(--color-base-900) 0%, #0b5d8f 55%, #1565a0 100%);
+    color: #fff;
+    padding: 4rem 0;
+  }
+  .cp-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .cp-hero__badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.375rem 0.75rem; border-radius: 9999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.07);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: rgba(255,255,255,0.9);
+    margin: 0 0 1.25rem;
+  }
+  .cp-hero__badge-icon { color: var(--color-brand-primary); }
+
+  .cp-hero__title {
+    font-size: clamp(1.875rem, 4vw, 2.625rem);
+    line-height: 1.15; font-weight: 800; letter-spacing: -0.02em;
+    color: #fff; margin: 0 0 1.25rem;
+  }
+  .cp-hero__title :global(.cp-accent) { color: rgba(255,255,255,0.75); }
+
+  .cp-hero__lead {
+    font-size: 1.125rem; line-height: 1.65;
+    color: rgba(255,255,255,0.85);
+    max-width: 36rem; margin: 0 0 2rem;
+  }
+
+  .cp-hero__cta {
+    display: flex; flex-wrap: wrap; gap: 0.875rem;
+  }
+
+  .cp-hero__stats {
+    display: flex; flex-wrap: wrap; gap: 1.5rem 2rem;
+    margin-top: 2.5rem; padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+  .cp-hero__stat { display: inline-flex; flex-direction: column; gap: 0.125rem; }
+  .cp-hero__stat-value { font-size: 1.375rem; font-weight: 800; color: var(--color-brand-primary); }
+  .cp-hero__stat-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.75); }
+
+  /* 右视觉块: 移动隐, 桌面显 */
+  .cp-hero__visual { display: none; }
+  @media (min-width: 1024px) {
+    .cp-hero { padding: 5.5rem 0; }
+    .cp-hero__inner { grid-template-columns: 7fr 5fr; gap: 3rem; }
+    .cp-hero__visual { display: block; }
+  }
+
+  .cp-hero__card {
+    position: relative; border-radius: 1rem; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    aspect-ratio: 4 / 3;
+    background: radial-gradient(circle at 50% 40%, rgba(21,101,160,0.6), rgba(7,49,77,0.9) 70%);
+  }
+  .cp-hero__grid {
+    position: absolute; inset: 0; opacity: 0.12;
+    background-image: linear-gradient(rgba(255,255,255,0.25) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .cp-hero__svg {
+    position: absolute; inset: 0; width: 80%; height: 80%; margin: auto;
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.35));
+  }
+  .cp-hero__statusbar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.625rem 1.25rem;
+    background: rgba(7,49,77,0.75); backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.75rem; color: rgba(255,255,255,0.8);
+  }
+  .cp-hero__status-right { color: var(--color-brand-primary); font-weight: 700; }
+</style>

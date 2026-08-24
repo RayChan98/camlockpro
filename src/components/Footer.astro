@@ -1,0 +1,84 @@
+---
+// Footer — 全站页脚(官方最佳实践: 语义 footer + scoped 样式)
+import { SITE, CATEGORIES } from '../config';
+
+const year = new Date().getFullYear();
+---
+<footer class="cp-footer">
+  <div class="kv-container cp-footer__grid">
+    <div class="cp-footer__brand">
+      <img src="/camlockpro-logo-vertical.svg" alt="CamlockPro" width="140" height="38" />
+      <p>{SITE.tagline}</p>
+      <p class="cp-footer__contact">
+        <a href="tel:+8613710860663">+86 137 1086 0663</a> · <a href="mailto:{SITE.inquiryEmail}">{SITE.inquiryEmail}</a>
+      </p>
+    </div>
+
+    <nav class="cp-footer__col" aria-label="Products">
+      <p class="cp-footer__title">Products</p>
+      <ul>
+        {CATEGORIES.slice(0, 6).map((c) => (
+          <li><a href={`/products/${c.slug}/`}>{c.label}</a></li>
+        ))}
+        <li><a href="/products/">All products</a></li>
+      </ul>
+    </nav>
+
+    <nav class="cp-footer__col" aria-label="Resources">
+      <p class="cp-footer__title">Resources</p>
+      <ul>
+        <li><a href="/guides/">Selection guides</a></li>
+        <li><a href="/applications/">Applications</a></li>
+        <li><a href="/oem/">OEM &amp; custom</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <nav class="cp-footer__col" aria-label="Legal">
+      <p class="cp-footer__title">Legal</p>
+      <ul>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/cookie-policy/">Cookie Policy</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="kv-container cp-footer__bottom">
+    <p>© {year} {SITE.name}. All rights reserved.</p>
+    <p class="cp-footer__author">Author: Ray Chan</p>
+  </div>
+</footer>
+
+<style>
+  .cp-footer { background: var(--color-base-950); color: rgba(255,255,255,0.7); font-size: 0.9375rem; }
+  .cp-footer__grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem;
+    padding-top: 3.5rem; padding-bottom: 2.5rem;
+  }
+  @media (max-width: 1023px) {
+    .cp-footer__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 639px) {
+    .cp-footer__grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  }
+
+  .cp-footer__brand img { margin-bottom: 0.75rem; }
+  .cp-footer__brand p { max-width: 20rem; line-height: 1.6; }
+  .cp-footer__contact { margin-top: 0.75rem; font-size: 0.875rem; }
+  .cp-footer__contact a { color: rgba(255,255,255,0.85); }
+
+  .cp-footer__title { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; margin: 0 0 1rem; }
+  .cp-footer__col ul { list-style: none; margin: 0; padding: 0; }
+  .cp-footer__col li { margin-bottom: 0.5rem; }
+  .cp-footer__col a { color: rgba(255,255,255,0.7); }
+  .cp-footer__col a:hover { color: #fff; text-decoration: none; }
+
+  .cp-footer__bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1.25rem; padding-bottom: 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8125rem;
+  }
+  .cp-footer__bottom p { margin: 0; }
+</style>

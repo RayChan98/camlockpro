@@ -1,0 +1,59 @@
+---
+// 产品详情页 — slug 沿用旧站 /products/[slug]
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((p) => ({ params: { slug: p.data.category }, props: { product: p } }));
+}
+
+const { product } = Astro.props as { product: CollectionEntry<'products'> };
+const { Content } = await render(product);
+---
+<BaseLayout
+  title={`${product.data.title} — CamlockPro`}
+  description={product.data.description}
+>
+  <PageHero
+    title={product.data.title}
+    subtitle={product.data.description}
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products/' }, { label: product.data.title }]}
+  />
+
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <Content />
+      </article>
+      <div class="cp-cta">
+        <SectionHeading
+          title="Tell Us the Duty. Get Sized Hoses Back."
+          desc="Send your fluid, pressure, temperature and bore size — we come back with hose options and figures."
+        />
+        <a href="/contact/" class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose :global(h2) { margin-top: 2.5rem; }
+  .cp-prose :global(h3) { margin-top: 1.75rem; }
+  .cp-prose :global(p) { color: var(--color-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+  .cp-prose :global(ul), .cp-prose :global(ol) { color: var(--color-muted); line-height: 1.7; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  .cp-prose :global(table) { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9375rem; }
+  .cp-prose :global(th), .cp-prose :global(td) { padding: 0.6rem 0.85rem; text-align: left; border-bottom: 1px solid var(--color-line); }
+  .cp-prose :global(th) { background: var(--color-brand-light); color: var(--color-brand); font-weight: 650; }
+
+  .cp-cta {
+    margin-top: 4rem; padding: 2.5rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: var(--color-surface-3);
+    display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start;
+  }
+  .cp-cta :global(.cp-sec) { margin-bottom: 0; }
+</style>

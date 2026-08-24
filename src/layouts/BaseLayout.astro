@@ -1,0 +1,87 @@
+---
+// BaseLayout — 全站骨架(官方最佳实践: 组件化 + scoped 样式 + 语义 HTML)
+// 关键: html overflow-x:clip 防横向溢出(global.css); 移动菜单 inline onclick; mega menu max-width 钳制
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileNav from '../components/MobileNav.astro';
+import FloatingActions from '../components/ui/FloatingActions.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+const { title, description, canonical, noindex = false } = Astro.props;
+const fullTitle = title.includes('CamlockPro') ? title : `${title} | CamlockPro`;
+const canonicalHref = canonical ?? Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`https://camlockpro.com${canonicalHref}`} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://camlockpro.com${canonicalHref}`} />
+    <meta property="og:site_name" content="CamlockPro" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="cp-skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <MobileNav />
+    <FloatingActions />
+    <script is:inline>
+      // 全局导航切换(移动菜单/搜索), inline onclick 调用
+      window.mnToggle = function () {
+        var d = document.getElementById('mn-drawer');
+        if (d) d.classList.toggle('is-open');
+        var b = document.getElementById('mn-backdrop');
+        if (b) b.classList.toggle('is-open');
+        document.body.classList.toggle('mn-lock');
+      };
+      window.mnClose = function () {
+        var d = document.getElementById('mn-drawer');
+        if (d) d.classList.remove('is-open');
+        var b = document.getElementById('mn-backdrop');
+        if (b) b.classList.remove('is-open');
+        document.body.classList.remove('mn-lock');
+      };
+      window.mnAcc = function (btn) {
+        var panel = btn.nextElementSibling;
+        if (panel) panel.classList.toggle('open');
+        btn.classList.toggle('open');
+      };
+      window.qmOpen = function () {
+        var o = document.getElementById('qm-overlay');
+        if (o) o.classList.add('is-open');
+      };
+      window.qmClose = function () {
+        var o = document.getElementById('qm-overlay');
+        if (o) o.classList.remove('is-open');
+      };
+    </script>
+    <style is:global>
+      .mn-lock { overflow: hidden; }
+      .cp-skip {
+        position: absolute; left: -9999px; top: 0; z-index: 9999;
+        background: var(--color-brand); color: #fff; padding: 0.5rem 1rem;
+      }
+      .cp-skip:focus { left: 0; }
+    </style>
+  </body>
+</html>

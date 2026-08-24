@@ -1,0 +1,44 @@
+---
+// OEM & Custom Hoses to Drawing or Sample — slug 沿用旧站
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+---
+<BaseLayout
+  title="OEM & Custom Hoses to Drawing or Sample"
+  description="Send a drawing or sample and we build the hose in the material and construction you specify — prototype, production and testing on one line."
+>
+  <PageHero
+    title="OEM & Custom"
+    subtitle="Send a drawing or sample and we build the hose in the material and construction you specify — prototype, production and testing on one line."
+    breadcrumb={{ label: 'Home', href: '/' }, { label: 'OEM & Custom' }}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <h2>OEM &amp; Custom</h2>
+        <p>Send a drawing or sample and we build the hose to your specification — tube compound, reinforcement, cover, bore size, end fittings and test regime. Tooling, prototype and production on one line, with test certificates on every assembly.</p>
+        <h3>What we can customise</h3>
+        <p>Tube and cover compounds (EPDM, NBR, UHMWPE, PTFE, silicone, PVC), reinforcement (textile, wire braid, spiral), bore and length, colour, branding and packaging, end fittings and factory crimped assemblies.</p>
+        <h3>From drawing to production</h3>
+        <p>Drawing or sample review — material and construction proposal with figures — prototype — approval — production. OEM, ODM and private label all supported.</p>
+        <p>For a specific duty — fluid, pressure, temperature and bore size — send us the operating conditions and we will come back with options and figures.</p>
+        <h2>Next step</h2>
+        <p>Send your drawing, sample or duty conditions, or browse the hose ranges first.</p>
+      </article>
+      <div class="cp-cta">
+        <a href="/contact/" class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">Request a Quote</a>
+        <a href="/products/" class="kv-btn kv-btn--outline kv-btn--lg kv-btn--block-mobile">Browse Hose Ranges</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose h2 { margin-top: 2.5rem; }
+  .cp-prose h3 { margin-top: 1.75rem; }
+  .cp-prose p { color: var(--color-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+  .cp-cta { display: flex; flex-wrap: wrap; gap: 0.875rem; margin-top: 2.5rem; }
+</style>

@@ -1,0 +1,40 @@
+---
+// PageHero — 内页统一首屏(官方最佳实践: 组件化复用, 全站内页共用)
+interface Props {
+  title: string;
+  subtitle?: string;
+  breadcrumb?: { label: string; href?: string }[];
+}
+const { title, subtitle, breadcrumb } = Astro.props;
+---
+<section class="cp-pagehero">
+  <div class="kv-container">
+    {breadcrumb && breadcrumb.length > 0 && (
+      <nav class="cp-pagehero__crumb" aria-label="Breadcrumb">
+        {breadcrumb.map((b, i) => (
+          <span>
+            {i > 0 && <span class="cp-pagehero__sep">/</span>}
+            {b.href ? <a href={b.href}>{b.label}</a> : <span aria-current="page">{b.label}</span>}
+          </span>
+        ))}
+      </nav>
+    )}
+    <h1 class="cp-pagehero__title">{title}</h1>
+    {subtitle && <p class="cp-pagehero__subtitle">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .cp-pagehero {
+    background: linear-gradient(120deg, var(--color-base-900) 0%, var(--color-brand) 100%);
+    color: #fff;
+    padding: 3.5rem 0 3rem;
+  }
+  @media (min-width: 768px) { .cp-pagehero { padding: 4.5rem 0 3.5rem; } }
+  .cp-pagehero__crumb { font-size: 0.8125rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+  .cp-pagehero__crumb a { color: rgba(255,255,255,0.8); }
+  .cp-pagehero__crumb a:hover { color: #fff; text-decoration: none; }
+  .cp-pagehero__sep { margin: 0 0.5rem; opacity: 0.5; }
+  .cp-pagehero__title { color: #fff; font-size: clamp(1.75rem, 3.5vw, 2.375rem); margin: 0 0 0.75rem; }
+  .cp-pagehero__subtitle { color: rgba(255,255,255,0.85); font-size: 1.0625rem; max-width: 42rem; margin: 0; line-height: 1.65; }
+</style>

@@ -1,0 +1,52 @@
+---
+// Hose Applications — slug 沿用旧站
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+---
+<BaseLayout
+  title="Hose Applications — Food, Chemical, Hydraulic and More"
+  description="Food and beverage, chemical processing, hydraulic power, steam, pharma and water transfer — the right hose construction for the duty."
+>
+  <PageHero
+    title="Applications"
+    subtitle="Food and beverage, chemical processing, hydraulic power, steam, pharma and water transfer — the right hose construction for the duty."
+    breadcrumb={{ label: 'Home', href: '/' }, { label: 'Applications' }}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <h2>Applications</h2>
+        <p>Hose selection starts with the duty: what is being transferred, at what temperature and pressure, and what the cleaning or operating regime demands. From that, the lining, reinforcement and cover follow.</p>
+        <h3>Food &amp; Beverage</h3>
+        <p>Dairy, juice, beer, wine, edible oil and washdown duties — FDA and 3-A compliant hoses in EPDM, NBR, UHMWPE, silicone and clear PVC, built to survive CIP cleaning cycles.</p>
+        <h3>Chemical Processing</h3>
+        <p>Acid, solvent and alkali transfer with UHMWPE, PTFE and XLPE linings — compatibility data at service temperature, not a generic chart.</p>
+        <h3>Hydraulic Power</h3>
+        <p>SAE 100R1/R2 wire-reinforced hoses for mobile and industrial fluid power, with factory crimped and tested assemblies.</p>
+        <h3>Steam &amp; High Temperature</h3>
+        <p>PTFE and silicone hoses for saturated steam, hot chemicals and process heat to 260°C.</p>
+        <h3>Pharma &amp; Biotech</h3>
+        <p>Platinum-cured silicone and smooth bore PTFE for clean transfer, CIP/SIP and high-purity duties.</p>
+        <h3>Water, Slurry &amp; Bulk</h3>
+        <p>Suction, discharge, layflat and heavy-duty hoses for dewatering, irrigation, mining and dredging.</p>
+        <p>For a specific duty — fluid, pressure, temperature and bore size — send us the operating conditions and we will come back with hose options and figures.</p>
+        <h2>Next step</h2>
+        <p>Send your duty conditions, or browse the hose ranges and selection guides first.</p>
+      </article>
+      <div class="cp-cta">
+        <a href="/contact/" class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">Request a Quote</a>
+        <a href="/products/" class="kv-btn kv-btn--outline kv-btn--lg kv-btn--block-mobile">Browse Hose Ranges</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose h2 { margin-top: 2.5rem; }
+  .cp-prose h3 { margin-top: 1.75rem; }
+  .cp-prose p { color: var(--color-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+  .cp-cta { display: flex; flex-wrap: wrap; gap: 0.875rem; margin-top: 2.5rem; }
+</style>

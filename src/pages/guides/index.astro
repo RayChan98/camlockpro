@@ -1,0 +1,50 @@
+---
+// 指南列表页 — slug 沿用旧站 /guides/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guides')).sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0));
+---
+<BaseLayout
+  title="Industrial Hose Selection Guides"
+  description="Practical guides on picking the right industrial hose — food grade, PTFE, chemical, hydraulic, silicone and more. Material selection, standards and duty sizing."
+>
+  <PageHero
+    title="Selection Guides"
+    subtitle="Short, practical walkthroughs on picking the right hose for the duty."
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Guides' }]}
+  />
+
+  <section class="cp-section">
+    <div class="kv-container">
+      <div class="cp-grid">
+        {guides.map((g) => (
+          <a href={`/guides/${g.id}/`} class="cp-card">
+            <h2>{g.data.title}</h2>
+            <p>{g.data.description}</p>
+            <span class="cp-card__meta">{g.data.pubDate ? new Date(g.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 768px) { .cp-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .cp-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .cp-card {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    padding: 1.5rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cp-card:hover { border-color: var(--color-brand); box-shadow: 0 8px 24px rgba(11,93,143,0.1); text-decoration: none; }
+  .cp-card h2 { font-size: 1.0625rem; margin: 0; }
+  .cp-card p { color: var(--color-muted); font-size: 0.875rem; line-height: 1.6; margin: 0; flex: 1; }
+  .cp-card__meta { font-size: 0.75rem; color: var(--color-brand); font-weight: 600; }
+</style>

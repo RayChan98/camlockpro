@@ -1,0 +1,59 @@
+---
+// 产品总览页 — slug 沿用旧站 /products/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import { CATEGORIES } from '../../config';
+import { getCollection } from 'astro:content';
+
+const products = await getCollection('products');
+const bySlug = Object.fromEntries(products.map((p) => [p.id, p]));
+---
+<BaseLayout
+  title="Hose Ranges — Food Grade, PTFE, Chemical, Hydraulic and More"
+  description="Browse CamlockPro's eight industrial hose ranges — food grade, PTFE, chemical transfer, hydraulic, silicone, suction and more. Specification data and selection support on every page."
+>
+  <PageHero
+    title="Hose Ranges"
+    subtitle="Eleven core ranges, each with flow tables and a selection walkthrough rather than a bare product grid."
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Products' }]}
+  />
+
+  <section class="cp-section">
+    <div class="kv-container">
+      <div class="cp-list">
+        {CATEGORIES.map((c) => {
+          const p = bySlug[c.slug];
+          return (
+            <a href={`/products/${c.slug}/`} class="cp-card">
+              <div class="cp-card__body">
+                <h2>{c.label}</h2>
+                <p>{c.blurb}</p>
+                {p && <p class="cp-card__meta">{p.data.description}</p>}
+              </div>
+              <span class="cp-card__arrow">View range →</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-list { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 768px) { .cp-list { grid-template-columns: 1fr 1fr; } }
+
+  .cp-card {
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 1.5rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cp-card:hover { border-color: var(--color-brand); box-shadow: 0 8px 24px rgba(11,93,143,0.1); text-decoration: none; }
+  .cp-card__body h2 { font-size: 1.25rem; margin: 0 0 0.5rem; }
+  .cp-card__body p { color: var(--color-muted); font-size: 0.9375rem; line-height: 1.6; margin: 0 0 0.75rem; }
+  .cp-card__meta { font-size: 0.875rem; color: var(--color-brand); }
+  .cp-card__arrow { font-size: 0.875rem; font-weight: 600; color: var(--color-brand); margin-top: 1rem; }
+</style>

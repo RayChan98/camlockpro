@@ -1,0 +1,24 @@
+---
+// 404 页 — slug 沿用旧站
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Page Not Found — CamlockPro"
+  description="The page you are looking for does not exist."
+  noindex
+>
+  <section class="cp-404">
+    <div class="kv-container cp-404__inner">
+      <h1>404</h1>
+      <p>That page does not exist — or moved. Head back to the home page.</p>
+      <a href="/" class="kv-btn kv-btn--primary kv-btn--lg">Back to Home</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-404 { padding: 6rem 0; text-align: center; }
+  .cp-404__inner { max-width: 36rem; }
+  .cp-404 h1 { font-size: 3.5rem; margin-bottom: 0.5rem; color: var(--color-brand); }
+  .cp-404 p { color: var(--color-muted); font-size: 1.0625rem; margin-bottom: 2rem; }
+</style>

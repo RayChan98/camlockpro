@@ -1,0 +1,41 @@
+---
+// About CamlockPro — slug 沿用旧站
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+---
+<BaseLayout
+  title="About CamlockPro — Food Grade and Industrial Hose Manufacturer"
+  description="CamlockPro is a factory-direct manufacturer of food grade, PTFE, chemical, hydraulic, silicone and suction hoses for demanding transfer duties."
+>
+  <PageHero
+    title="Who we are"
+    subtitle="CamlockPro is a factory-direct manufacturer of food grade, PTFE, chemical, hydraulic, silicone and suction hoses for hygienic and demanding transfer duties."
+    breadcrumb={{ label: 'Home', href: '/' }, { label: 'Who we are' }}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <h2>Who we are</h2>
+        <p>CamlockPro is a factory-direct manufacturer of industrial hoses, specialising in food grade, PTFE and chemical transfer lines where certification and material selection are the difference between a reliable line and a failed one.</p>
+        <p>For a specific duty — fluid, pressure, temperature, bore size and cleaning regime — send us the operating conditions and we will come back with hose options, construction details and figures.</p>
+        <h2>What we supply</h2>
+        <p>Eight hose ranges, each specified against real duties: food grade (FDA/3-A), PTFE (SAE 100R14), chemical transfer (UHMWPE/PTFE lined), hydraulic (SAE R1/R2), silicone (platinum-cured), suction and discharge, stainless braided, and factory crimped assemblies with test certificates.</p>
+        <h2>Next step</h2>
+        <p>Send your duty conditions, or browse the hose ranges and selection guides first.</p>
+      </article>
+      <div class="cp-cta">
+        <a href="/contact/" class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">Request a Quote</a>
+        <a href="/products/" class="kv-btn kv-btn--outline kv-btn--lg kv-btn--block-mobile">Browse Hose Ranges</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose h2 { margin-top: 2.5rem; }
+  .cp-prose p { color: var(--color-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+  .cp-cta { display: flex; flex-wrap: wrap; gap: 0.875rem; margin-top: 2.5rem; }
+</style>

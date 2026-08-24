@@ -1,0 +1,142 @@
+---
+// 首页 — CamlockPro 工业软管（官方最佳实践: 组件化拼装）
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import { CATEGORIES } from '../config';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guides')).sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0)).slice(0, 3);
+
+const heroStats = [
+  { value: '8', label: 'Coupling Ranges' },
+  { value: '7+', label: 'Selection Guides' },
+  { value: 'OEM', label: 'to Drawing' },
+  { value: 'E2E', label: 'Supply' },
+];
+---
+<BaseLayout
+  title="Cam and Groove Couplings — Factory Direct"
+  description="Aluminum, stainless steel, brass and polypropylene camlock couplings from a factory-direct supplier. Types A-F, DC and DP, selection support and OEM manufacturing."
+>
+  <Hero
+    eyebrow="A-A-59326D Compliant · OEM to Drawing"
+    titleHtml={'Cam and Groove Couplings <span class="cp-accent">Matched to Your Fluid, Pressure and Temperature</span>'}
+    lead="Aluminum, stainless, brass and polypropylene camlocks in every standard type and size — specified against your duty conditions, not pulled off a shelf. Send the operating data and we come back with options and figures."
+    primaryCta={{ label: 'Request a Quote', href: '/contact/' }}
+    secondaryCta={{ label: 'Read the Selection Guides', href: '/guides/' }}
+    stats={heroStats}
+  />
+
+  <!-- 产品分类网格 -->
+  <section class="cp-section">
+    <div class="kv-container">
+      <SectionHeading
+        badge="Product Ranges"
+        title="Coupling Ranges We Supply"
+        desc="Eight core ranges, each with specifications and a selection walkthrough rather than a bare product grid."
+      />
+      <div class="cp-cats">
+        {CATEGORIES.map((c) => (
+          <a href={`/products/${c.slug}/`} class="cp-cat">
+            <span class="cp-cat__icon" aria-hidden="true">{c.label.charAt(0)}</span>
+            <span class="cp-cat__body">
+              <span class="cp-cat__title">{c.label}</span>
+              <span class="cp-cat__blurb">{c.blurb}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 为什么选我们 -->
+  <section class="cp-section cp-section--alt">
+    <div class="kv-container">
+      <SectionHeading
+        badge="Why CamlockPro"
+        title="Specified for your duty, not a shelf code"
+        desc="Every coupling is matched against your fluid, pressure, temperature and connection type — then handed back with figures, not a catalogue number."
+      />
+      <div class="cp-why">
+        <div class="cp-why__card">
+          <h3>Material matched to the fluid</h3>
+          <p>Aluminum, stainless, brass or polypropylene selected against your media — with gasket (EPDM, NBR, Viton, PTFE) specified to match, not assumed.</p>
+        </div>
+        <div class="cp-why__card">
+          <h3>Types, sizes and threads confirmed</h3>
+          <p>A through F, DC, DP — we confirm the letter, the size and the thread standard (NPT/BSPT) before you commit, so the wrong part never ships.</p>
+        </div>
+        <div class="cp-why__card">
+          <h3>Standards you can quote</h3>
+          <p>A-A-59326D (MIL-C-27487) and EN 14420-7 profiles with interchangeable fit to Dixon, Banjo and PT couplings — certification data with every quotation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新指南 -->
+  <section class="cp-section">
+    <div class="kv-container">
+      <SectionHeading
+        badge="Selection Guides"
+        title="Latest Guides"
+        desc="Short, practical walkthroughs on picking the right coupling for the duty."
+      />
+      <div class="cp-guides">
+        {guides.map((g) => (
+          <a href={`/guides/${g.id}/`} class="cp-guide">
+            <h3>{g.data.title}</h3>
+            <p>{g.data.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-section--alt { background: var(--color-surface-3); }
+  @media (min-width: 768px) { .cp-section { padding: 5rem 0; } }
+
+  .cp-cats { display: grid; grid-template-columns: 1fr; gap: 0.875rem; }
+  @media (min-width: 640px) { .cp-cats { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .cp-cats { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .cp-cat {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.125rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cp-cat:hover { border-color: var(--color-brand); box-shadow: 0 6px 18px rgba(11,93,143,0.1); text-decoration: none; }
+  .cp-cat__icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.5rem; height: 2.5rem; border-radius: var(--kv-radius);
+    background: var(--color-brand-light); color: var(--color-brand);
+    font-weight: 800; font-size: 1.125rem; flex-shrink: 0;
+  }
+  .cp-cat__body { display: flex; flex-direction: column; gap: 0.125rem; }
+  .cp-cat__title { font-weight: 600; color: var(--color-ink); font-size: 0.9375rem; }
+  .cp-cat__blurb { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.5; }
+
+  .cp-why { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 768px) { .cp-why { grid-template-columns: 1fr 1fr 1fr; } }
+  .cp-why__card {
+    padding: 1.5rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: #fff;
+  }
+  .cp-why__card h3 { font-size: 1.0625rem; margin: 0 0 0.5rem; }
+  .cp-why__card p { color: var(--color-muted); font-size: 0.9375rem; line-height: 1.6; margin: 0; }
+
+  .cp-guides { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 768px) { .cp-guides { grid-template-columns: 1fr 1fr 1fr; } }
+  .cp-guide {
+    display: block; padding: 1.5rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: #fff;
+  }
+  .cp-guide:hover { border-color: var(--color-brand); text-decoration: none; }
+  .cp-guide h3 { font-size: 1rem; margin: 0 0 0.5rem; }
+  .cp-guide p { color: var(--color-muted); font-size: 0.875rem; line-height: 1.6; margin: 0; }
+</style>

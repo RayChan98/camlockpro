@@ -1,0 +1,115 @@
+---
+// 联系页 — 询盘表单(CF Pages Function /api/contact 直发 cj226144)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { SITE } from '../config';
+---
+<BaseLayout
+  title="Contact & Request a Quote — CamlockPro"
+  description="Send your duty conditions to CamlockPro and get sized hose options back with figures. Email, WhatsApp or the RFQ form."
+>
+  <PageHero
+    title="Tell Us the Duty. Get Sized Hoses Back."
+    subtitle="Send your fluid, pressure, temperature and bore size — we come back with hose options and figures, not a catalogue number."
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
+  />
+
+  <section class="cp-section">
+    <div class="kv-container cp-grid">
+      <div class="cp-info">
+        <h2>Direct contact</h2>
+        <p class="cp-info__item"><strong>Email:</strong> <a href={`mailto:${SITE.inquiryEmail}`}>{SITE.inquiryEmail}</a></p>
+        <p class="cp-info__item"><strong>Phone / WhatsApp:</strong> <a href="tel:+8613710860663">+86 137 1086 0663</a></p>
+        <p class="cp-info__item"><strong>Response time:</strong> within one business day, with figures where possible.</p>
+        <h2 class="cp-info__h2">What to send</h2>
+        <ul class="cp-info__list">
+          <li>Flow rate (L/min or GPM) and line pressure</li>
+          <li>Fluid and temperature</li>
+          <li>Temperature and cleaning regime</li>
+          <li>Drawing / sample for OEM work (optional)</li>
+        </ul>
+      </div>
+
+      <form class="cp-form" action="/api/contact" method="POST" data-rfq>
+        <label class="cp-form__field">
+          <span>Your name *</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label class="cp-form__field">
+          <span>Work email *</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label class="cp-form__field">
+          <span>Company</span>
+          <input type="text" name="company" autocomplete="organization" />
+        </label>
+        <label class="cp-form__field">
+          <span>Application</span>
+          <input type="text" name="application" placeholder="e.g. tank cleaning, cooling, dust control" />
+        </label>
+        <label class="cp-form__field">
+          <span>What do you need? *</span>
+          <textarea name="message" rows={5} required placeholder="Flow, pressure, fluid, target coverage…"></textarea>
+        </label>
+        <button type="submit" class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">Send RFQ</button>
+        <p class="cp-form__note" data-form-status></p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  document.querySelectorAll('form[data-rfq]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var status = form.querySelector('[data-form-status]');
+      var btn = form.querySelector('button[type="submit"]');
+      var data = new FormData(form);
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      fetch(form.action, { method: 'POST', body: data })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.ok) {
+            if (status) { status.textContent = 'Sent! We will come back with options and figures within one business day.'; status.style.color = '#16a34a'; }
+            form.reset();
+          } else {
+            if (status) { status.textContent = res.error || 'Send failed — please try again or email us directly.'; status.style.color = '#dc2626'; }
+          }
+        })
+        .catch(function () {
+          if (status) { status.textContent = 'Network error — please email cj226144@gmail.com directly.'; status.style.color = '#dc2626'; }
+        })
+        .finally(function () {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send RFQ'; }
+        });
+    });
+  });
+</script>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  @media (min-width: 1024px) { .cp-grid { grid-template-columns: 2fr 3fr; } }
+
+  .cp-info__item { line-height: 1.8; }
+  .cp-info__h2 { margin-top: 2rem; }
+  .cp-info__list { color: var(--color-muted); padding-left: 1.25rem; line-height: 1.9; }
+
+  .cp-form {
+    display: flex; flex-direction: column; gap: 1.25rem;
+    padding: 2rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: #fff;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.06);
+  }
+  .cp-form__field { display: flex; flex-direction: column; gap: 0.375rem; }
+  .cp-form__field span { font-size: 0.875rem; font-weight: 600; color: var(--color-ink); }
+  .cp-form__field input,
+  .cp-form__field textarea {
+    padding: 0.625rem 0.75rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius); font-family: inherit; font-size: 0.9375rem;
+    color: var(--color-ink); background: #fff;
+  }
+  .cp-form__field input:focus,
+  .cp-form__field textarea:focus { outline: 2px solid var(--color-brand); outline-offset: -1px; border-color: var(--color-brand); }
+  .cp-form__note { font-size: 0.875rem; margin: 0; min-height: 1.25rem; }
+</style>

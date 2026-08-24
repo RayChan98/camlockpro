@@ -1,0 +1,27 @@
+---
+// SectionHeading — 区块标题(官方最佳实践: 组件化复用)
+interface Props {
+  badge?: string;
+  title: string;
+  desc?: string;
+  align?: 'left' | 'center';
+}
+const { badge, title, desc, align = 'left' } = Astro.props;
+---
+<div class:list={['cp-sec', align === 'center' && 'cp-sec--center']}>
+  {badge && <p class="cp-sec__badge">{badge}</p>}
+  <h2 class="cp-sec__title">{title}</h2>
+  {desc && <p class="cp-sec__desc">{desc}</p>}
+</div>
+
+<style>
+  .cp-sec { max-width: 48rem; margin-bottom: 2.5rem; }
+  .cp-sec--center { margin-left: auto; margin-right: auto; text-align: center; }
+  .cp-sec__badge {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--color-brand); margin: 0 0 0.5rem;
+  }
+  .cp-sec__title { font-size: var(--fs-h2); margin: 0 0 0.75rem; }
+  .cp-sec__desc { color: var(--color-muted); font-size: 1.0625rem; line-height: 1.65; margin: 0; }
+</style>

@@ -1,0 +1,31 @@
+---
+// Terms of Service — slug 沿用旧站
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+---
+<BaseLayout
+  title="Terms of Service — CamlockPro"
+  description="The terms that apply when you use this site and request quotes."
+>
+  <PageHero
+    title="Terms of Service"
+    breadcrumb={{ label: 'Home', href: '/' }, { label: 'Terms of Service' }}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <p>The content on this site is provided for information only. Figures and specification data are indicative; final hose selection depends on your real duty conditions.</p>
+
+<p>Quotes provided in response to enquiries are indicative and subject to confirmation against a final specification. Material, finish and tolerance are agreed per order.</p>
+
+<p>Products are supplied under our standard sales conditions, which are sent with each quotation.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose p { color: var(--color-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+</style>

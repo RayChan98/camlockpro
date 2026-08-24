@@ -1,0 +1,31 @@
+---
+// Privacy Policy — slug 沿用旧站
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+---
+<BaseLayout
+  title="Privacy Policy — CamlockPro"
+  description="What data we collect and how it is used."
+>
+  <PageHero
+    title="Privacy Policy"
+    breadcrumb={{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <p>We collect only what you send us through the contact form or email: name, work email, company and the duty details of your enquiry. We use it solely to respond to your enquiry and to send you follow-up information you ask for.</p>
+
+<p>We do not sell, rent or share your personal data with third parties for marketing. Data is stored on our email and form providers under their standard security controls.</p>
+
+<p>You can ask us at any time to delete your data by emailing cj226144@gmail.com.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose p { color: var(--color-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+</style>

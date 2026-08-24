@@ -1,0 +1,29 @@
+---
+// Cookie Policy — slug 沿用旧站
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+---
+<BaseLayout
+  title="Cookie Policy — CamlockPro"
+  description="How this site uses cookies."
+>
+  <PageHero
+    title="Cookie Policy"
+    breadcrumb={{ label: 'Home', href: '/' }, { label: 'Cookie Policy' }}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <p>This site does not use advertising cookies. We use only essential cookies required for site function, and the analytics tools of our hosting provider for aggregate traffic statistics.</p>
+
+<p>You can block cookies in your browser settings without affecting the core function of the site.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose p { color: var(--color-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+</style>

@@ -1,0 +1,54 @@
+---
+// 作者页 — slug 沿用旧站 /author/(官方最佳实践: PageHero + 语义结构)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { DEFAULT_AUTHOR } from '../data/author';
+---
+<BaseLayout
+  title={`About ${DEFAULT_AUTHOR.name} — CamlockPro Hose Engineering`}
+  description={`${DEFAULT_AUTHOR.name}: ${DEFAULT_AUTHOR.role}. The engineer behind CamlockPro's selection guides and hose specification support.`}
+>
+  <PageHero
+    title={`About ${DEFAULT_AUTHOR.name}`}
+    subtitle={DEFAULT_AUTHOR.role}
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Author' }]}
+  />
+
+  <section class="cp-author">
+    <div class="kv-container">
+      <div class="cp-author__card">
+        <span class="cp-author__avatar" style={`background:${DEFAULT_AUTHOR.avatarBg}`} aria-hidden="true">
+          {DEFAULT_AUTHOR.avatarImg ? <img src={DEFAULT_AUTHOR.avatarImg} alt={DEFAULT_AUTHOR.name} /> : DEFAULT_AUTHOR.initials}
+        </span>
+        <div>
+          <h2>{DEFAULT_AUTHOR.name}</h2>
+          <p class="cp-author__role">{DEFAULT_AUTHOR.role}</p>
+          <p class="cp-author__bio">{DEFAULT_AUTHOR.bio}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-author { padding: 3.5rem 0 5rem; }
+  .cp-author__card {
+    display: flex; align-items: flex-start; gap: 1.5rem;
+    padding: 2rem; border: 1px solid var(--color-line);
+    border-radius: var(--kv-radius-lg); background: #fff;
+  }
+  .cp-author__avatar {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 7rem; height: 7rem; border-radius: var(--kv-radius-lg);
+    color: #fff; font-size: 2rem; font-weight: 800; flex-shrink: 0;
+    border: 3px solid #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .cp-author__avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .cp-author__card h2 { margin: 0 0 0.25rem; }
+  .cp-author__role { color: var(--color-brand); font-weight: 600; margin: 0 0 0.75rem; }
+  .cp-author__bio { color: var(--color-muted); line-height: 1.7; margin: 0; max-width: 42rem; }
+  @media (max-width: 640px) {
+    .cp-author__card { flex-direction: column; }
+  }
+</style>

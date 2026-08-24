@@ -1,0 +1,147 @@
+---
+// Header — 桌面导航(官方最佳实践: 语义 nav + scoped 样式 + mega menu 防溢出)
+// 结构: topbar(联系信息) → 主栏(logo + nav + CTA) → Products mega menu(悬停展开, max-width 钳制)
+import { SITE, NAV, CATEGORIES } from '../config';
+import Icon from './ui/Icon.astro';
+import CtaButton from './ui/CtaButton.astro';
+
+const topCategories = CATEGORIES.slice(0, 6);
+const restCategories = CATEGORIES.slice(6);
+---
+<header class="cp-header">
+  <div class="cp-topbar">
+    <div class="kv-container cp-topbar__inner">
+      <span class="cp-topbar__item">
+        <Icon name="mail" size={14} />
+        <a href={`mailto:${SITE.inquiryEmail}`}>{SITE.inquiryEmail}</a>
+      </span>
+      <span class="cp-topbar__item">
+        <Icon name="phone" size={14} />
+        <a href="tel:+8613710860663">+86 137 1086 0663</a>
+      </span>
+      <span class="cp-topbar__item cp-topbar__tag">ISO 9001 · OEM to Drawing</span>
+    </div>
+  </div>
+
+  <div class="cp-navbar">
+    <div class="kv-container cp-navbar__inner">
+      <a href="/" class="cp-logo" aria-label="CamlockPro home">
+        <img src="/camlockpro-logo-horizontal.svg" alt="CamlockPro" width="150" height="40" />
+      </a>
+
+      <nav class="cp-nav" aria-label="Main">
+        <div class="cp-nav__group">
+          <button class="cp-nav__link" onclick="return false" aria-expanded="false">
+            Products
+            <Icon name="chevronDown" size={14} />
+          </button>
+          <!-- mega menu: max-width 钳制 + right 对齐, 防横向溢出 -->
+          <div class="cp-mega">
+            <div class="cp-mega__inner">
+              <div class="cp-mega__cats">
+                {topCategories.map((c) => (
+                  <a href={`/products/${c.slug}/`} class="cp-mega__cat">
+                    <Icon name={c.icon as any} size={18} />
+                    <span>{c.label}</span>
+                  </a>
+                ))}
+                {restCategories.length > 0 && (
+                  <a href="/products/" class="cp-mega__cat cp-mega__cat--all">
+                    <Icon name="arrowRight" size={18} />
+                    <span>All {CATEGORIES.length} ranges</span>
+                  </a>
+                )}
+              </div>
+              <div class="cp-mega__side">
+                <p class="cp-mega__side-title">Selection support</p>
+                <a href="/guides/" class="cp-mega__side-link">Read the selection guides</a>
+                <a href="/oem/" class="cp-mega__side-link">OEM &amp; custom to drawing</a>
+                <a href="/contact/" class="cp-mega__side-link">Send your duty conditions</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {NAV.filter((n) => n.label !== 'Products').map((n) => (
+          <a href={n.href} class="cp-nav__link">{n.label}</a>
+        ))}
+      </nav>
+
+      <div class="cp-navbar__cta">
+        <CtaButton href="/contact/" tone="primary" size="sm" icon="arrowRight" label="Request a Quote" />
+      </div>
+
+      <button class="cp-burger" onclick="window.mnToggle()" aria-label="Open menu" aria-expanded="false">
+        <Icon name="menu" size={24} />
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .cp-header { position: relative; z-index: 100; }
+
+  /* topbar */
+  .cp-topbar { background: var(--color-base-900); color: #fff; font-size: 0.8125rem; }
+  .cp-topbar__inner { display: flex; align-items: center; gap: 1.5rem; min-height: 2rem; }
+  .cp-topbar__item { display: inline-flex; align-items: center; gap: 0.375rem; color: rgba(255,255,255,0.8); }
+  .cp-topbar__item a { color: rgba(255,255,255,0.9); }
+  .cp-topbar__item a:hover { color: #fff; text-decoration: none; }
+  .cp-topbar__tag { margin-left: auto; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
+  @media (max-width: 767px) {
+    .cp-topbar__tag, .cp-topbar__item:first-child { display: none; }
+  }
+
+  /* navbar */
+  .cp-navbar { background: #fff; border-bottom: 1px solid var(--color-line); }
+  .cp-navbar__inner { display: flex; align-items: center; gap: 2rem; min-height: 4.25rem; }
+  .cp-logo { display: inline-flex; flex-shrink: 0; }
+  .cp-logo img { height: 2.25rem; width: auto; }
+
+  .cp-nav { display: flex; align-items: center; gap: 0.25rem; margin-left: auto; }
+  .cp-nav__group { position: relative; }
+  .cp-nav__link {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    padding: 0.5rem 0.875rem; font-size: 0.9375rem; font-weight: 500;
+    color: var(--color-ink); background: none; border: 0; cursor: pointer;
+    border-radius: var(--kv-radius);
+  }
+  .cp-nav__link:hover { color: var(--color-brand); text-decoration: none; }
+
+  /* mega menu: 从按钮下展开, max-width 钳制防溢出 */
+  .cp-mega {
+    position: absolute; left: 0; top: 100%; padding-top: 0.75rem;
+    opacity: 0; visibility: hidden; transition: opacity 0.15s ease, visibility 0.15s ease;
+  }
+  .cp-nav__group:hover .cp-mega,
+  .cp-nav__group:focus-within .cp-mega { opacity: 1; visibility: visible; }
+  .cp-mega__inner {
+    width: 46rem; max-width: calc(100vw - 2rem);
+    display: grid; grid-template-columns: 1fr 14rem; gap: 1.5rem;
+    padding: 1.5rem; border-radius: var(--kv-radius-lg);
+    background: #fff; border: 1px solid var(--color-line);
+    box-shadow: 0 20px 40px rgba(15,23,42,0.12);
+  }
+  .cp-mega__cats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; align-content: start; }
+  .cp-mega__cat {
+    display: flex; align-items: center; gap: 0.625rem;
+    padding: 0.5rem 0.625rem; border-radius: var(--kv-radius);
+    font-size: 0.875rem; font-weight: 500; color: var(--color-ink);
+  }
+  .cp-mega__cat:hover { background: var(--color-surface-3); color: var(--color-brand); text-decoration: none; }
+  .cp-mega__cat svg { color: var(--color-brand); }
+  .cp-mega__cat--all { color: var(--color-brand); font-weight: 600; }
+  .cp-mega__side { border-left: 1px solid var(--color-line); padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .cp-mega__side-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted); margin: 0 0 0.25rem; }
+  .cp-mega__side-link { font-size: 0.875rem; color: var(--color-brand); }
+  .cp-mega__side-link:hover { text-decoration: underline; }
+
+  /* CTA + burger */
+  .cp-navbar__cta { flex-shrink: 0; }
+  .cp-burger { display: none; background: none; border: 0; cursor: pointer; color: var(--color-ink); padding: 0.375rem; }
+
+  /* 移动: 隐藏 nav, 显示 burger */
+  @media (max-width: 1023px) {
+    .cp-nav, .cp-navbar__cta { display: none; }
+    .cp-burger { display: inline-flex; margin-left: auto; }
+  }
+</style>
