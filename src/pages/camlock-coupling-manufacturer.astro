@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+---
+<BaseLayout
+  title='Camlock Coupling Manufacturer — Factory Direct from Precision Casting Lines'
+  description='Factory-direct camlock coupling manufacturer: aluminum, stainless steel, brass and polypropylene, types A-F/DC/DP, 1/2"-6". A-A-59326D / EN 14420-7, OEM and private label.'
+>
+  <PageHero
+    title="Camlock Coupling Manufacturer"
+    subtitle="Factory-direct cam and groove couplings across four materials and the full type range — with casting, machining, testing and OEM support on one line."
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Manufacturer' }]}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <article class="cp-prose">
+        <h2>Camlock couplings, straight from the casting line</h2>
+        <p>CamlockPro supplies cam and groove couplings factory-direct — no trading layers, no repackaging. The body is cast or machined, the gasket fitted and the coupling pressure-tested before it ships, with batch traceability on every order.</p>
+        <h2>What we manufacture</h2>
+        <h3>Materials</h3>
+        <p><strong>Aluminum</strong> (cast, anodized option) — the irrigation, water and general-duty default. <strong>Stainless steel</strong> 304 and 316 — food, chemical, marine and high-purity lines. <strong>Brass</strong> — fuel, gas and spark-sensitive duty. <strong>Polypropylene</strong> — aggressive chemicals at moderate temperature.</p>
+        <h3>Types and sizes</h3>
+        <p>The full profile range: <strong>A, B, C, D, E, F, DC and DP</strong>, from 1/2" to 6", in NPT and BSPT threads, with EPDM, NBR, Viton and PTFE gaskets to order. Replacement lever arms, gaskets, dust caps and plugs are stocked as spares.</p>
+        <h3>Standards</h3>
+        <p>Profile-manufactured to <strong>A-A-59326D</strong> (MIL-C-27487) and <strong>EN 14420-7</strong>, so our couplings interchange with Dixon, Banjo, PT and other standard-profile hardware.</p>
+        <h2>OEM, private label and custom</h2>
+        <p>Drawing or sample in — prototype, tooling and production run on one line. Customizable: material and finish (anodized aluminum, 316, nickel-plated brass), thread standard, gasket compound, laser marking, branding and packaging. MOQs are small enough for test runs.</p>
+        <h2>Quality and documentation</h2>
+        <ul>
+          <li>Pressure test certificates with batch shipments</li>
+          <li>Material certificates (mill certs for stainless, alloy certs for aluminum)</li>
+          <li>Factory audit pack and product samples on request</li>
+          <li>Gasket compound certificates for food and chemical duty</li>
+        </ul>
+        <h2>Why buyers come direct</h2>
+        <p>Factory-direct means the price reflects the casting line, not a distributor's margin, and the engineer who quotes your order can answer a materials question on the spot. Send the drawing, the sample or the duty conditions — the reply comes back with figures.</p>
+      </article>
+      <div class="cp-cta">
+        <a href="/contact/" class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">Request a Factory Quote</a>
+        <a href="/products/" class="kv-btn kv-btn--outline kv-btn--lg kv-btn--block-mobile">Browse Coupling Ranges</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-prose { max-width: 52rem; }
+  .cp-prose h2 { margin-top: 2.5rem; }
+  .cp-prose h3 { margin-top: 1.75rem; }
+  .cp-prose p, .cp-prose li { color: var(--color-muted); line-height: 1.7; margin-bottom: 1rem; }
+  .cp-prose ul { padding-left: 1.25rem; }
+  .cp-cta { display: flex; flex-wrap: wrap; gap: 0.875rem; margin-top: 2.5rem; }
+</style>

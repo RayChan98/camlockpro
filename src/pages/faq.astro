@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+
+const faqs = [
+  { q: 'What is a camlock coupling?', a: 'A camlock (cam and groove) coupling is a two-part, tool-free quick-connect fitting for hoses and pipes. The male adapter slides into the female coupler and two cam arms lock over a groove to form a leak-proof seal. It connects in about three seconds with no tools.' },
+  { q: 'What does A, B, C, D, E, F, DC and DP mean on camlocks?', a: 'The letters describe what is on the non-cam end of the fitting. Type A is a male adapter with male thread, B a female coupler with female thread, C a male adapter with hose shank, D a female coupler with hose shank, E a male adapter with offset hose shank, F a female coupler with offset hose shank, DC a dust cap, and DP a dust plug. Male types (A, E, F) mate with female types (B, C, D, DC) of the same size.' },
+  { q: 'Are camlocks from different manufacturers interchangeable?', a: 'Yes, when they follow the same standard (A-A-59326D / MIL-C-27487 or EN 14420-7). A Dixon adapter will mate with a Banjo coupler of the same size and type. Check the standard marking if you are mixing brands on a critical line.' },
+  { q: 'How much pressure can a camlock coupling hold?', a: 'Typical working pressure depends on size and material: aluminum couplings run about 200 psi at 1/2"-2", dropping to 125 psi at 3", 110 psi at 4" and 60 psi at 6". Stainless steel is rated higher, polypropylene lower and temperature-dependent. Always verify the rating table for your exact size and material.' },
+  { q: 'What size camlock do I need?', a: 'Camlock sizes refer to the nominal hose or pipe bore, not the outside diameter. A 2" camlock clamps onto 2" hose and connects to 2" adapters. Measure the bore of the hose or pipe, not the outside.' },
+  { q: 'What is the best camlock material for water?', a: 'Aluminum is the standard for water and general transfer - inexpensive, light and durable. For potable or food contact, use stainless steel (304) with a food-grade gasket. Polypropylene suits chemical service.' },
+  { q: 'Can I connect camlocks of different materials?', a: 'Physically yes - the cam and groove profile is the same across materials. But in wet or corrosive environments, mixed metals (aluminum + stainless, for example) can cause galvanic corrosion and seize the cams. Keep the same material family for permanent or wet duty.' },
+  { q: 'Which gasket do I need for fuel?', a: 'NBR (Buna-N) is the standard gasket for fuel, oil and hydraulic fluids. EPDM is for water and steam, Viton (FKM) for aggressive chemicals and high temperature, and PTFE for near-universal chemical resistance. The gasket is the part that actually seals - match it to the media.' },
+  { q: 'Are camlocks safe for compressed air or steam?', a: 'Camlock couplings are not rated for compressed air service unless the specific fitting is marked for it - cam arms can blow open under sudden air pressure. For steam, use a stainless steel camlock with the correct gasket and check the pressure-temperature rating.' },
+  { q: 'Can a camlock be used on food and beverage lines?', a: 'Yes - stainless steel camlocks with food-grade (FDA-compliant) gaskets are widely used in food and beverage transfer. Polypropylene is also food-safe for many applications. Never use aluminum or brass on acidic food products.' },
+  { q: 'What is the difference between a camlock and a quick disconnect?', a: 'A camlock is a specific type of quick-disconnect coupling using cam arms over a groove. "Quick disconnect" is the general category - Storz, Bauer, tri-clamp and dry-disconnect couplings are also quick disconnects with different mechanisms and standards.' },
+  { q: 'What is the difference between camlock and Storz?', a: 'Camlock uses two cam arms over a groove; Storz uses interlocking lugs with a quarter-turn. Camlock is the industrial generalist with more materials and configurations; Storz is the fire-service and municipal-water standard. They do not mate directly - adapters are available.' },
+  { q: 'What is a camlock dust cap and plug used for?', a: 'Type DC dust caps cover female couplers and type DP dust plugs protect male adapters when disconnected. They keep dirt and grit out of the sealing groove, stop drips and protect the cam arms - the cheapest insurance for a coupling line.' },
+  { q: 'How do I stop a camlock from leaking?', a: 'Check the five usual causes: wrong size (nominal bore), wrong thread standard (NPT vs BSPT), missing or wrong-compound gasket, cam arms not fully closed, and hose clamp over the smooth section instead of the barb. Fix those and the leak is usually gone.' },
+  { q: 'Do camlocks need a gasket every time?', a: 'Yes - the gasket is the sealing element. Metal-on-metal camlocks do not seal. Replace gaskets when they crack, flatten or harden, and stock spares for every size you run.' },
+  { q: 'What is the working temperature range of camlocks?', a: 'It is set by the material and gasket: aluminum and stainless bodies handle high temperatures, but polypropylene bodies derate above about 65-80 degC (149-176 degF). Gaskets: EPDM to 120 degC, NBR to 100 degC, Viton to 200 degC, PTFE to 260 degC.' },
+  { q: 'Are camlock fittings standardised?', a: 'Yes - the profile is defined by A-A-59326D (formerly MIL-C-27487) in North America and EN 14420-7 in Europe. DIN 2828 is the older German equivalent. Standards-marked fittings from different manufacturers are interchangeable.' },
+  { q: 'Can I use camlocks with IBC totes?', a: 'Yes - a 2" BSP or NPT camlock adapter threads directly onto an IBC tote outlet, converting it to a quick-connect point for transfer lines. Camlock-to-triclamp and camlock-to-Bauer adapters cover the rest of the system.' },
+  { q: 'What is the MOQ for custom camlock orders?', a: 'OEM and private-label orders start from small production runs; tooling, prototype and production run on one line. Send the drawing or sample and we will confirm the quantity, price and lead time with figures.' },
+  { q: 'Where are CamlockPro couplings manufactured?', a: 'We supply factory-direct from precision casting and machining lines - aluminum, stainless, brass and polypropylene - with test certificates and full traceability on every batch. Contact us for the factory audit pack.' },
+];
+
+---
+<BaseLayout
+  title="Camlock FAQ - Coupling Types, Sizes, Pressure, Gaskets and Threads"
+  description="Answers to the most asked camlock questions: types A-F/DC/DP, sizes and pressure ratings, gasket materials, NPT vs BSPT threads, interchangeability and leak fixing."
+>
+  <PageHero
+    title="Camlock FAQ"
+    subtitle="The questions we answer every day - types, sizes, pressure, gaskets, threads and leaks."
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'FAQ' }]}
+  />
+  <section class="cp-section">
+    <div class="kv-container">
+      <div class="cp-faq">
+        {faqs.map((f) => (
+          <details class="cp-faq__item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <div class="cp-cta">
+        <a href="/contact/" class="kv-btn kv-btn--primary kv-btn--lg kv-btn--block-mobile">Ask Us Directly</a>
+        <a href="/guides/" class="kv-btn kv-btn--outline kv-btn--lg kv-btn--block-mobile">Read the Selection Guides</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cp-section { padding: 4rem 0; }
+  .cp-faq { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .cp-faq__item { border: 1px solid var(--color-line); border-radius: 6px; padding: 0.5rem 1.25rem; background: var(--color-surface-1); }
+  .cp-faq__item summary { cursor: pointer; font-weight: 600; color: var(--color-ink); padding: 0.75rem 0; }
+  .cp-faq__item p { color: var(--color-muted); line-height: 1.7; padding-bottom: 1rem; margin: 0; }
+  .cp-cta { display: flex; flex-wrap: wrap; gap: 0.875rem; margin-top: 2.5rem; }
+  @media (max-width: 768px) { .cp-faq { grid-template-columns: 1fr; } }
+</style>
