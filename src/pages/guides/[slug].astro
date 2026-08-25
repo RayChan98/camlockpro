@@ -11,11 +11,25 @@ export async function getStaticPaths() {
 
 const { guide } = Astro.props as { guide: CollectionEntry<'guides'> };
 const { Content } = await render(guide);
+const SITE = 'https://camlockpro.pages.dev';
+const guideSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: guide.data.title,
+  description: guide.data.seoDesc,
+  keywords: guide.data.primaryKeyword,
+  datePublished: guide.data.pubDate ? new Date(guide.data.pubDate).toISOString() : undefined,
+  dateModified: guide.data.updated ? new Date(guide.data.updated).toISOString() : undefined,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/guides/${guide.id}/` },
+  author: { '@type': 'Organization', name: 'CamlockPro', url: SITE },
+  publisher: { '@type': 'Organization', name: 'CamlockPro', url: SITE },
+};
 ---
 <BaseLayout
   title={`${guide.data.title} — CamlockPro`}
-  description={guide.data.description}
+  description={guide.data.seoDesc}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(guideSchema)} />
   <PageHero
     title={guide.data.title}
     breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: guide.data.title }]}

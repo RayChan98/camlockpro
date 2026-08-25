@@ -33,7 +33,7 @@
 ## 待办
 
 - [ ] 主人/总控注册 camlockpro.com（走 CF Registrar）→ canonical 自动生效
-- [ ] git push（github.com 被墙瞬态，api 通主站不通，恢复后推 RayChan98/camlockpro）
+- [x] git push（2026-08-25 晚恢复，8132984 已推 RayChan98/camlockpro）
 - [x] 内容增量（2026-08-25）：燃料/食品级/水/消防/IBC 应用 5 篇 + Top10 manufacturers listicle 完成（9 指南 + 7 产品 = 36 页）
 - [ ] 核心词 ≥3000 字深度指南扩充（类型指南扩到 3000+）
 - [ ] 飞书网站记录表（seo-page-tracker 批量录入）

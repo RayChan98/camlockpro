@@ -12,11 +12,22 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props as { product: CollectionEntry<'products'> };
 const { Content } = await render(product);
+const SITE = 'https://camlockpro.pages.dev';
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.data.title,
+  description: product.data.seoDesc,
+  category: product.data.category,
+  brand: { '@type': 'Brand', name: 'CamlockPro' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/products/${product.data.category}/` },
+};
 ---
 <BaseLayout
   title={`${product.data.title} — CamlockPro`}
-  description={product.data.description}
+  description={product.data.seoDesc}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <PageHero
     title={product.data.title}
     subtitle={product.data.description}

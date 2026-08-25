@@ -14,11 +14,32 @@ const heroStats = [
   { value: 'OEM', label: 'to Drawing' },
   { value: 'E2E', label: 'Supply' },
 ];
+
+const SITE = 'https://camlockpro.pages.dev';
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'CamlockPro',
+      url: SITE,
+      description: 'Factory-direct cam and groove (camlock) couplings: aluminum, stainless steel, brass and polypropylene, types A-F, DC and DP.',
+    },
+    {
+      '@type': 'Organization',
+      name: 'CamlockPro',
+      url: SITE,
+      email: 'cj226144@gmail.com',
+      description: 'Camlock coupling supplier — cam and groove quick-connect couplings for industrial transfer.',
+    },
+  ],
+};
 ---
 <BaseLayout
   title="Cam and Groove Couplings — Factory Direct"
   description="Aluminum, stainless steel, brass and polypropylene camlock couplings from a factory-direct supplier. Types A-F, DC and DP, selection support and OEM manufacturing."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
   <Hero
     eyebrow="A-A-59326D Compliant · OEM to Drawing"
     titleHtml={'Cam and Groove Couplings <span class="cp-accent">Matched to Your Fluid, Pressure and Temperature</span>'}
