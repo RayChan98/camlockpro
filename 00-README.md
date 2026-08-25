@@ -35,7 +35,7 @@
 - [ ] 主人/总控注册 camlockpro.com（走 CF Registrar）→ canonical 自动生效
 - [x] git push（2026-08-25 晚恢复，8132984 已推 RayChan98/camlockpro）
 - [x] 内容增量（2026-08-25）：燃料/食品级/水/消防/IBC 应用 5 篇 + Top10 manufacturers listicle 完成（9 指南 + 7 产品 = 36 页）
-- [ ] 核心词 ≥3000 字深度指南扩充（类型指南扩到 3000+）
-- [ ] 飞书网站记录表（seo-page-tracker 批量录入）
-- [ ] on-page/technical SEO 终检（title/desc/canonical 已过，补 structured data 复核）
+- [x] 核心词 ≥3000 字深度指南扩充（2026-08-25 夜）：类型/材质/尺寸/压力/垫圈/安装/对比 7 篇全部 3000+（3469-4661 词）
+- [x] 飞书网站记录表（2026-08-25）：T-41 CamlockPro 网站记录表 35 条全量录入 https://kcnkn5gq5sh6.feishu.cn/base/I3ZEbRD1karOwJsaCCec6o5wntT
+- [x] on-page/technical SEO 终检（2026-08-25）：JSON-LD 结构化数据全站注入（Article/Product/WebSite+Organization）+ 修 seoDesc meta bug
 - [ ] 产品图管线（素材后置，色板/LOGO 随时可换）
