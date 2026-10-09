@@ -5,6 +5,8 @@ seoDesc: 'Machined brass cam and groove couplings for fuel, gas and high-pressur
 primaryKeyword: "brass camlock coupling"
 category: "brass"
 summary: 'Machined brass camlock couplings for fuel transfer, gas lines and high-pressure hydraulic use. Types A-F in 1/2" to 4".'
+image: '/images/products/camlockpro-brass-camlock-coupling-10.webp'
+imageAlt: 'CamlockPro brass type B camlock coupler with two lever arms and male NPT thread'
 specSource: "competitor-reference"
 specSourceNote: "Reference data compiled from public industry sources — pending factory verification."
 noindex: false

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 112" role="img" aria-label="CamlockPro">
+  <rect x="0" y="0" width="420" height="112" fill="none"/>
+  <g>
+    <circle cx="52" cy="56" r="30" fill="none" stroke="#0b5d8f" stroke-width="10"/>
+    <circle cx="52" cy="56" r="12" fill="#f59e0b"/>
+    <rect x="16" y="14" width="12" height="16" rx="3" fill="#0b5d8f" transform="rotate(-30 22 22)"/>
+    <rect x="76" y="82" width="12" height="16" rx="3" fill="#0b5d8f" transform="rotate(-30 82 90)"/>
+  </g>
+  <text x="104" y="70" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="-0.5" fill="#07314d">Camlock<tspan fill="#0b5d8f">Pro</tspan></text>
+</svg>

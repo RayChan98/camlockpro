@@ -5,6 +5,8 @@ seoDesc: 'Cast aluminum cam and groove couplings (types A-F, DC, DP) in 1/2" to 
 primaryKeyword: "aluminum camlock coupling"
 category: "aluminum"
 summary: 'Cast aluminum camlock couplings for water, fuel, agriculture and general transfer. Types A-F, DC and DP in 1/2" to 6", A-A-59326D compliant.'
+image: '/images/products/camlockpro-aluminum-camlock-coupling-01.webp'
+imageAlt: 'CamlockPro aluminum type D camlock coupler with female threaded inlet'
 specSource: "competitor-reference"
 specSourceNote: "Reference data compiled from public industry sources — pending factory verification."
 noindex: false

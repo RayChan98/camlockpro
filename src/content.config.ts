@@ -25,6 +25,9 @@ const products = defineCollection({
       'accessories',
     ]),
     summary: z.string(),
+    // 真实产品位图（图池-主人筛经 vision 验真后选片，禁 AI 假图顶产品位 R-6）
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
     // 参数来源：抄竞对引流阶段一律 'competitor-reference'，
     // 拿到母厂真参数后改 'factory-verified'
     specSource: z.enum(['competitor-reference', 'factory-verified']),

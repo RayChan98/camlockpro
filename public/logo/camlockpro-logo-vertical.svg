@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150" role="img" aria-label="CamlockPro">
+  <rect x="0" y="0" width="240" height="150" fill="none"/>
+  <g>
+    <circle cx="42" cy="52" r="24" fill="none" stroke="#0b5d8f" stroke-width="8"/>
+    <circle cx="42" cy="52" r="9" fill="#f59e0b"/>
+    <rect x="14" y="18" width="10" height="13" rx="3" fill="#0b5d8f" transform="rotate(-30 19 24)"/>
+    <rect x="60" y="72" width="10" height="13" rx="3" fill="#0b5d8f" transform="rotate(-30 65 78)"/>
+  </g>
+  <text x="80" y="66" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="-0.5" fill="#07314d">Camlock<tspan fill="#0b5d8f">Pro</tspan></text>
+  <text x="16" y="128" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="16" font-weight="600" letter-spacing="4" fill="#0b5d8f">CAM &amp; GROOVE COUPLINGS</text>
+</svg>

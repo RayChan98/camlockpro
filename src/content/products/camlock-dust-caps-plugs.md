@@ -5,6 +5,8 @@ seoDesc: 'Type DC camlock dust caps and DP dust plugs keep open coupling ends cl
 primaryKeyword: "camlock dust cap"
 category: "dust-caps-plugs"
 summary: "Type DC dust caps and DP dust plugs for every camlock size — keep hose ends clean, capped and safe between connections."
+image: '/images/products/camlockpro-aluminum-dust-cap-04.webp'
+imageAlt: 'CamlockPro aluminum type DC camlock dust cap with lever arms'
 specSource: "competitor-reference"
 specSourceNote: "Reference data compiled from public industry sources — pending factory verification."
 noindex: false

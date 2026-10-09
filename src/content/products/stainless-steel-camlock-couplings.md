@@ -5,6 +5,8 @@ seoDesc: '304 and 316 stainless steel camlock couplings for food, chemical and m
 primaryKeyword: "stainless steel camlock coupling"
 category: "stainless-steel"
 summary: '304/316 stainless cam and groove couplings for food, beverage, chemical and marine applications. 1/2" to 6", 250 psi working pressure.'
+image: '/images/products/camlockpro-stainless-camlock-coupling-02.webp'
+imageAlt: 'CamlockPro 316 stainless steel type D camlock coupler with female threaded inlet'
 specSource: "competitor-reference"
 specSourceNote: "Reference data compiled from public industry sources — pending factory verification."
 noindex: false

@@ -5,6 +5,8 @@ seoDesc: "Camlock threaded adapters, reducers, hose shanks, elbows and flanges â
 primaryKeyword: "camlock adapter"
 category: "fittings-adapters"
 summary: "Threaded adapters, reducers, hose shanks, elbows and flanges that connect camlock couplings to pipes, hoses, tanks and IBC totes."
+image: '/images/products/camlockpro-aluminum-male-adapter-06.webp'
+imageAlt: 'CamlockPro aluminum type E camlock male adapter with female thread'
 specSource: "competitor-reference"
 specSourceNote: "Reference data compiled from public industry sources â€” pending factory verification."
 noindex: false

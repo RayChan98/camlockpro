@@ -36,6 +36,18 @@ const productSchema = {
 
   <section class="cp-section">
     <div class="kv-container">
+      {product.data.image && (
+        <figure class="cp-prodimg">
+          <img
+            src={product.data.image}
+            alt={product.data.imageAlt ?? product.data.title}
+            width="350" height="285"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <figcaption>{product.data.title} — {product.data.summary}</figcaption>
+        </figure>
+      )}
       <article class="cp-prose">
         <Content />
       </article>
@@ -53,6 +65,9 @@ const productSchema = {
 <style>
   .cp-section { padding: 4rem 0; }
   .cp-prose { max-width: 52rem; }
+  .cp-prodimg { margin: 0 0 2.5rem; max-width: 26rem; }
+  .cp-prodimg img { width: 100%; height: auto; border: 1px solid var(--color-line); border-radius: var(--kv-radius-lg); background: #fff; }
+  .cp-prodimg figcaption { font-size: 0.8125rem; color: var(--color-muted); margin-top: 0.625rem; line-height: 1.5; }
   .cp-prose :global(h2) { margin-top: 2.5rem; }
   .cp-prose :global(h3) { margin-top: 1.75rem; }
   .cp-prose :global(p) { color: var(--color-muted); line-height: 1.7; margin-bottom: 1.25rem; }

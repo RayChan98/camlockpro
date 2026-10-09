@@ -5,6 +5,8 @@ seoDesc: 'Lightweight polypropylene cam and groove couplings for acids, solvents
 primaryKeyword: "polypropylene camlock coupling"
 category: "polypropylene"
 summary: 'Polypropylene camlock couplings for aggressive chemical transfer, DI water and food handling. 1/2" to 4", corrosion-proof and lightweight.'
+image: '/images/products/camlockpro-polypropylene-camlock-coupling-03.webp'
+imageAlt: 'CamlockPro polypropylene type D camlock coupler for chemical transfer'
 specSource: "competitor-reference"
 specSourceNote: "Reference data compiled from public industry sources — pending factory verification."
 noindex: false

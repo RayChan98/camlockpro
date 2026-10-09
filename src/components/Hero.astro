@@ -52,32 +52,14 @@ const { eyebrow, titleHtml = '', lead = '', primaryCta, secondaryCta, stats = []
       )}
     </div>
 
-    <div class="cp-hero__visual" aria-hidden="true">
+    <div class="cp-hero__visual">
       <div class="cp-hero__card">
         <div class="cp-hero__grid"></div>
-        <svg viewBox="0 0 300 260" fill="none" class="cp-hero__svg">
-          <defs>
-            <linearGradient id="bjMetal" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1565a0" />
-              <stop offset="55%" stop-color="#0b5d8f" />
-              <stop offset="100%" stop-color="#07314d" />
-            </linearGradient>
-            <linearGradient id="bjAccent" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#3b9ede" />
-              <stop offset="100%" stop-color="#0b5d8f" />
-            </linearGradient>
-          </defs>
-          <path d="M70 90 L150 55 L230 90 L230 160 L150 195 L70 160 Z" fill="url(#bjMetal)" stroke="#5b7a9c" stroke-width="1.5" />
-          <path d="M70 90 L70 120 L150 155 L150 125 Z" fill="#0e4780" stroke="#5b7a9c" stroke-width="1.2" />
-          <path d="M230 90 L230 120 L150 155 L150 125 Z" fill="#07314d" stroke="#5b7a9c" stroke-width="1.2" />
-          <path d="M95 100 L150 75 L205 100 L150 125 Z" fill="#07314d" stroke="url(#bjAccent)" stroke-width="1.5" />
-          <circle cx="150" cy="100" r="10" fill="#07314d" stroke="url(#bjAccent)" stroke-width="1.5" />
-          <circle cx="120" cy="92" r="4" fill="#07314d" stroke="#5b7a9c" stroke-width="1" />
-          <circle cx="180" cy="92" r="4" fill="#07314d" stroke="#5b7a9c" stroke-width="1" />
-          <path d="M70 90 L40 60 M230 90 L260 60" stroke="#f59e0b" stroke-width="1.2" />
-          <text x="22" y="56" fill="#f59e0b" font-size="12" font-family="monospace">±0.01</text>
-          <text x="248" y="56" fill="#f59e0b" font-size="12" font-family="monospace">Ø12.0</text>
-        </svg>
+        <div class="cp-hero__photos">
+          <img src="/images/products/camlockpro-aluminum-camlock-coupling-01.webp" alt="CamlockPro aluminum type D camlock coupler with female threaded inlet" width="350" height="285" loading="eager" />
+          <img src="/images/products/camlockpro-stainless-camlock-coupling-02.webp" alt="CamlockPro 316 stainless steel type D camlock coupler with female threaded inlet" width="350" height="285" loading="eager" />
+          <img src="/images/products/camlockpro-polypropylene-camlock-coupling-03.webp" alt="CamlockPro polypropylene type D camlock coupler for chemical transfer" width="350" height="285" loading="lazy" />
+        </div>
         <div class="cp-hero__statusbar">
           <span>ISO 9001 · OEM to Drawing</span>
           <span class="cp-hero__status-right">±0.01 mm</span>
@@ -157,10 +139,18 @@ const { eyebrow, titleHtml = '', lead = '', primaryCta, secondaryCta, stats = []
       linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px);
     background-size: 28px 28px;
   }
-  .cp-hero__svg {
-    position: absolute; inset: 0; width: 80%; height: 80%; margin: auto;
-    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.35));
+  .cp-hero__photos {
+    position: absolute; inset: 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem;
+    padding: 1.25rem 1.25rem 2.75rem;
+    align-content: center;
   }
+  .cp-hero__photos img {
+    width: 100%; height: auto; border-radius: 0.5rem; background: #fff;
+    object-fit: cover; aspect-ratio: 4 / 3;
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,0.35));
+  }
+  .cp-hero__photos img:first-child { grid-column: 1 / 3; max-height: 46%; justify-self: center; width: 62%; }
   .cp-hero__statusbar {
     position: absolute; bottom: 0; left: 0; right: 0;
     display: flex; align-items: center; justify-content: space-between;
