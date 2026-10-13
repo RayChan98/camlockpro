@@ -2,6 +2,7 @@
 // Privacy Policy — slug 沿用旧站
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/ui/PageHero.astro';
+import { SITE } from '../config';
 ---
 <BaseLayout
   title="Privacy Policy — CamlockPro"
@@ -18,7 +19,7 @@ import PageHero from '../components/ui/PageHero.astro';
 
 <p>We do not sell, rent or share your personal data with third parties for marketing. Data is stored on our email and form providers under their standard security controls.</p>
 
-<p>You can ask us at any time to delete your data by emailing cj226144@gmail.com.</p>
+<p>You can ask us at any time to delete your data by emailing {SITE.inquiryEmail}.</p>
       </article>
     </div>
   </section>

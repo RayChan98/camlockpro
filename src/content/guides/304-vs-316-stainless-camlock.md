@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 Both look identical. Both say "stainless steel" on the box. But 304 and 316 are different alloys with a different job, and picking the wrong one on a chemical or marine line is how couplings pit, corrode and seize.
 
+![Stainless steel type D camlock coupler, machined 304/316 body with four cam arms](/images/products/camlockpro-stainless-camlock-coupling-02.webp)
+
+*Stainless type D coupler — the grade question (304 vs 316) applies to bodies like this.*
+
+![Stainless steel type C camlock coupler with hose shank for washdown duty](/images/products/camlockpro-stainless-camlock-coupler-hose-shank-08.webp)
+
+*Stainless type C on a hose end — where chloride exposure decides 304 or 316.*
+
 ## The difference in one table
 
 | Property | 304 stainless | 316 stainless |

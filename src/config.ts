@@ -1,13 +1,18 @@
 // 站点单一配置源：域名/导航/联系方式只在这里改一次
+// 触点值（email/phone）唯一真源 = src/data/site.ts（gate2 F3 声明源，81号件案③ t_fbf17b36）
+import { site as CONTACT } from './data/site';
 // T-41 Camlock 快接 2026-08-23 定：品牌=CamlockPro（camlockpro.com 待注册，先 pages.dev 顶着）
 // 旗舰：Aluminum Camlock（应用最广）+ 次旗舰：Stainless Steel / Polypropylene（差异化）
 // 建站边界（README）：材质×口径×类型选型矩阵
 export const SITE = {
   name: 'CamlockPro',
   tagline: 'Cam and Groove Couplings — Aluminum, Stainless Steel, Brass and Polypropylene for Quick, Leak-Free Transfer',
-  url: 'https://camlockpro.pages.dev',
-  plannedDomain: 'camlockpro.com',
-  inquiryEmail: 'cj226144@gmail.com',
+  url: CONTACT.url,
+  plannedDomain: CONTACT.plannedDomain,
+  inquiryEmail: CONTACT.email,
+  phone: CONTACT.phone,
+  telHref: CONTACT.telHref,
+  whatsapp: CONTACT.whatsapp,
   // 表单走 CF function /api/contact（Zoho OAuth2），Web3Forms 废弃
   web3formsKey: '',
 };

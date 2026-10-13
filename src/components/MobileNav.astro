@@ -2,6 +2,7 @@
 // MobileNav — 移动端抽屉菜单(官方最佳实践: scoped 样式 + inline onclick 全局函数)
 // 左滑 translateX(-100%) 全屏覆盖(工业蓝深底), 手风琴分类
 import { NAV, CATEGORIES } from '../config';
+import { site } from '../data/site';
 import Icon from './ui/Icon.astro';
 
 const groups = NAV.map((n) =>
@@ -44,7 +45,7 @@ const groups = NAV.map((n) =>
       Request a Quote
     </a>
     <p class="mn-drawer__contact">
-      <a href="mailto:cj226144@gmail.com">cj226144@gmail.com</a> · <a href="tel:+8613710860663">+86 137 1086 0663</a>
+      <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.telHref}>{site.phone}</a>
     </p>
   </div>
 </nav>

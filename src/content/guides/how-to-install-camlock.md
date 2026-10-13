@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 *Camlock couplings are the fastest quick-connect fittings to install — and the easiest to install wrong. A correctly installed camlock takes three seconds to connect and lasts for years. One of the six classic mistakes, and you are back at the hose cart before the shift ends, with a puddle, a blow-off, or a seized coupling to explain. The coupling itself is rarely at fault: most field failures trace back to what happened during installation. This guide covers the complete procedure — tools, pre-install checks, the eight-step hose installation, threaded ends, the mistakes that cause leaks, disassembly and maintenance, selection logic, and safety — so the next coupling you fit stays dry on the first try.*
 
+![Aluminum male adapter inserted into a coupler during camlock installation](/images/products/camlockpro-aluminum-male-adapter-06.webp)
+
+*Step 1: insert the male adapter fully into the coupler before closing arms.*
+
+![Aluminum camlock coupler with both cam arms closed](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Both cam arms closed hand-tight — the sealed state.*
+
 ## What You Need: Tools and Materials
 
 The cam end of a camlock needs no tools at all — that is the entire point of the design. Everything you need for a hose-shank installation fits in one hand:

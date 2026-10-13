@@ -13,6 +13,14 @@ updated: 2026-08-24
 
 Walk any irrigated farm and you will see camlocks. They are the standard quick-connect on irrigation water lines because they are fast, cheap and tough enough for field life. Aluminum is the default material; here is how to spec them properly for ag duty.
 
+![Aluminum type C camlock coupler on irrigation supply hose](/images/products/camlockpro-aluminum-camlock-coupler-hose-shank-07.webp)
+
+*Type C aluminum on irrigation hose — the field-standard quick connect.*
+
+![Aluminum type D camlock coupler for pivot and mainline connections](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Type D coupler on the pipe side of a pivot or mainline connection.*
+
 ## Why aluminum
 
 - **Cost**: aluminum camlocks are the least expensive full-metal option, and irrigation does not need stainless

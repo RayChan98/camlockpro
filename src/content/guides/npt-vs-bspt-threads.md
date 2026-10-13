@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 The camlock body is rarely the leak. The thread connecting it to the pipe is. NPT, BSPT and BSPP look similar at arm's length, and a mismatched thread will leak, cross-thread or fail under pressure — often months later, after the system is buried.
 
+![Aluminum camlock coupler with male NPT thread end](/images/products/camlockpro-aluminum-camlock-coupler-male-thread-09.webp)
+
+*Threaded camlock fittings — the thread standard must match the port.*
+
+![Brass camlock fitting with threaded connection for fuel lines](/images/products/camlockpro-brass-camlock-coupling-10.webp)
+
+*Brass threaded coupler — common on BSPT ports in older installations.*
+
 ## The three standards
 
 | Standard | Taper? | Sealing method | Where used |

@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 Walk a fire station bay and you will see camlocks — on dump tanks, pump intakes, wildland water bladders and fill lines. They are the standard quick-connect for the **water supply side** of fireground operations. One clarification up front: fire hose itself uses storz or NH threads, not camlock. Camlock's job in fire service is the high-flow supply plumbing — moving water between tankers, dump tanks, pumps and portable bladders.
 
+![Aluminum camlock coupler used on water supply and tanker lines](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Aluminum coupler — the standard quick-connect on fire water supply hose.*
+
+![Aluminum type C camlock coupler with hose shank for delivery lines](/images/products/camlockpro-aluminum-camlock-coupler-hose-shank-07.webp)
+
+*Type C hose shank coupler for delivery-line connections.*
+
 ## The division of labor on the fireground
 
 - **Fire hose** → storz (European-style bayonet) or NH (national standard thread) — the hose couplings stay on those standards

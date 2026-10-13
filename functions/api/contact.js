@@ -1,4 +1,4 @@
-// CF Pages Function: /api/contact (fullcolorcam)
+// CF Pages Function: /api/contact (camlockpro)
 // 发信后端：Zoho Mail API (OAuth2) —— 2026-08-20 全站统一口径，禁 Resend/formsubmit/Web3Forms
 // 凭证只走 CF 项目环境变量（Dashboard 设）：ZOHO_CLIENT_ID / ZOHO_CLIENT_SECRET / ZOHO_REFRESH_TOKEN / ZOHO_ACCOUNT_ID
 // 缺配置 fail-closed 返回 mail_not_configured（不丢单不泄密）
@@ -42,7 +42,7 @@ export async function onRequest(context) {
     ].join('\n');
 
     const env = context.env;
-    if (env.ZOHO_CLIENT_ID && env.ZOHO_CLIENT_SECRET && env.ZOHO_REFRESH_TOKEN && env.ZOHO_ACCOUNT_ID) {
+    if (env.ZOHO_CLIENT_ID && env.ZOHO_CLIENT_SECRET && env.ZOHO_REFRESH_TOKEN && env.ZOHO_ACCOUNT_ID && env.ZOHO_FROM_EMAIL) {
       // === Zoho Mail API (OAuth2) ===
       const tokenRes = await fetch(
         'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + encodeURIComponent(env.ZOHO_REFRESH_TOKEN) +
@@ -67,7 +67,7 @@ export async function onRequest(context) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          fromAddress: env.ZOHO_FROM_EMAIL || 'inquiry@fullcolorcam.com',
+          fromAddress: env.ZOHO_FROM_EMAIL,
           toAddress: env.ZOHO_TO_EMAIL || 'cj226144@gmail.com',
           subject: `New inquiry: ${name || 'anonymous'}${company ? ' (' + company + ')' : ''}`,
           content: text,

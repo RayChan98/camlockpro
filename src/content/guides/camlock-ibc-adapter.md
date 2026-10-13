@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 IBC totes (1000 L intermediate bulk containers) are everywhere in chemical, food and oil transfer — and the standard way to get liquid out of a tote is a camlock on the valve outlet. The 2" butterfly valve on most totes is not camlock-compatible out of the box; you need the right adapter. Here is how to spec camlock IBC adapters correctly.
 
+![Aluminum type E male adapter used on IBC tote discharge connections](/images/products/camlockpro-aluminum-male-adapter-06.webp)
+
+*Type E male adapter — the tote-side half of a standard IBC hookup.*
+
+![Aluminum DC dust cap protecting an open IBC coupler thread](/images/products/camlockpro-aluminum-dust-cap-04.webp)
+
+*DC dust cap on the tote valve — keeps the mating face clean between transfers.*
+
 ## The tote valve outlet
 
 Most IBC totes ship with a **2" butterfly valve**, and the valve outlet thread is the first thing to identify:

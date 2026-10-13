@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 Water is the most common camlock duty in the world — construction site dewatering, pump testing, municipal bypass lines, tanker filling, washdown rigs and temporary fire protection supply. Camlocks dominate because they connect in seconds, seal reliably at working pressure and come in every size from ½" to 6". Here is how to spec camlocks for water service, including potable (drinking) water where the rules get stricter.
 
+![Aluminum type C camlock coupler on a water delivery hose](/images/products/camlockpro-aluminum-camlock-coupler-hose-shank-07.webp)
+
+*Type C on the water hose; size and pressure decide the coupling.*
+
+![Aluminum type D camlock coupler for fixed water line connections](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Type D on the pipe side of site water connections.*
+
 ## Material by water duty
 
 | Duty | Material | Notes |

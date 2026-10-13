@@ -12,6 +12,14 @@ updated: 2026-08-25
 
 *Cam and groove couplings look identical at a glance — until you order the wrong letter. Type A through DP aren't sizes or materials; each letter defines what's on the non-cam end of the fitting. This guide breaks down every standard camlock type, what it connects to, and how to order the right one the first time.*
 
+![Aluminum type E camlock male adapter with hose shank end](/images/products/camlockpro-aluminum-male-adapter-06.webp)
+
+*Type E male adapter — one of the eight letter profiles covered below.*
+
+![Aluminum type D camlock female coupler with two cam arms](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Type D female coupler — the socket half every type letter pairs against.*
+
 ## What Is a Camlock Coupling?
 
 A camlock coupling is a two-part, tool-free quick-connect fitting for hoses and pipes. It's also called a cam and groove coupling, a cam lock fitting, or a Kamlok-style coupling. One half is the **male adapter** (the grooved plug), the other is the **female coupler** (the socket with two pivoting cam arms). Push the adapter into the coupler and close both arms: the cams catch the groove and pull the halves together, compressing the gasket into a leak-proof seal. The whole connection takes about three seconds.

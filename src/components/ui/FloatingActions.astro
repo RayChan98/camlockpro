@@ -1,12 +1,13 @@
 ---
 // FloatingActions — 右下角悬浮(WhatsApp/电话/回顶)(官方最佳实践: scoped 样式 + inline onclick)
 import Icon from './Icon.astro';
+import { site } from '../../data/site';
 ---
 <div class="cp-fab">
-  <a href="https://wa.me/8613710860663?text=Hi%20CamlockPro%2C%20I%27d%20like%20to%20inquire%20about%20your%20industrial%20hoses." target="_blank" rel="noopener" class="cp-fab__btn cp-fab__btn--whatsapp" aria-label="Chat on WhatsApp">
+  <a href={`https://wa.me/${site.waNumber}?text=Hi%20CamlockPro%2C%20I%27d%20like%20to%20inquire%20about%20your%20camlock%20couplings.`} target="_blank" rel="noopener" class="cp-fab__btn cp-fab__btn--whatsapp" aria-label="Chat on WhatsApp">
     <Icon name="whatsapp" size={22} />
   </a>
-  <a href="tel:+8613710860663" class="cp-fab__btn cp-fab__btn--phone" aria-label="Call us">
+  <a href={site.telHref} class="cp-fab__btn cp-fab__btn--phone" aria-label="Call us">
     <Icon name="phone" size={20} />
   </a>
   <button class="cp-fab__btn cp-fab__btn--top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">

@@ -10,6 +10,14 @@ updated: 2026-08-25
 ---
 # Camlock Size Chart: Measure Once, Order Right
 
+![Aluminum male adapter shown for measuring OD across the groove](/images/products/camlockpro-aluminum-male-adapter-06.webp)
+
+*Measure across the adapter groove to identify nominal size.*
+
+![Aluminum female coupler with cam arms for size matching](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Coupler bore and arm spacing must match the same nominal size.*
+
 ## What a Camlock Size Actually Means
 
 Camlock sizes describe the **nominal bore** of the hose or pipe the coupling is designed to connect — not the outside diameter of the fitting, and not the outside of the hose. A 2" camlock clamps onto 2" hose. That is the whole trick, and it is where most order mix-ups start.

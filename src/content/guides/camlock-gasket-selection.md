@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 *The gasket is the only part of a camlock that actually seals. The metal body holds the halves together; the gasket stops the leak. Pick the wrong compound and the coupling fails even though the metalwork is perfect — which is why gasket selection deserves more attention than the price difference suggests.*
 
+![Aluminum camlock coupler showing the gasket groove on the female coupler face](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Gasket sits in the coupler face groove — the seal that EPDM/NBR/Viton/PTFE selection decides.*
+
+![Polypropylene camlock coupler with chemical-service gasket](/images/products/camlockpro-polypropylene-camlock-coupling-03.webp)
+
+*Plastic coupler on chemical duty — gasket compound matters more than body material alone.*
+
 ## Why the Gasket Is the Sealing Core
 
 A cam and groove coupling seals by compression, not by the cams themselves. When you push a male adapter into a female coupler and close both cam arms, the cam lobes rotate over the adapter's groove and draw the two faces together. That clamping force compresses the gasket — a flat elastomeric ring seated in a machined groove in the coupler bore — between the adapter shoulder and the coupler body. The compressed gasket is what blocks the leak path. The cams only supply the force; they never seal anything on their own.

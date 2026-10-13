@@ -13,6 +13,14 @@ updated: 2026-08-24
 
 Chemical transfer lines are where camlock selection stops being a price exercise. The coupling is a pressure vessel at the end of a hose, and the two parts that decide whether it survives are the body material and the gasket compound.
 
+![Black polypropylene type D camlock coupler for acid and solvent transfer](/images/products/camlockpro-polypropylene-camlock-coupling-03.webp)
+
+*Polypropylene coupler — chemical-resistant plastic body for acid and solvent loading.*
+
+![Stainless steel camlock coupler for aggressive chemical duty](/images/products/camlockpro-stainless-camlock-coupling-02.webp)
+
+*Stainless coupler for aggressive media and higher service temperature.*
+
 ## Body material first
 
 | Media type | Recommended body | Why |

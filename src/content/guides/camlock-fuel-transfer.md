@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 Camlock couplings are the workhorse quick-connect on fuel transfer lines — tanker trucks, bulk storage, generator refueling skids and machinery service carts all use them. But fuel is not water: the wrong material or the wrong gasket will degrade, harden or fail inside a fuel line. Here is how to spec camlocks for diesel, gasoline and lubricant duty.
 
+![Brass camlock coupler with threaded end for fuel and gas lines](/images/products/camlockpro-brass-camlock-coupling-10.webp)
+
+*Brass coupler — threaded strength and spark consideration on fuel lines.*
+
+![Aluminum type B camlock coupler with male NPT thread for fuel transfer](/images/products/camlockpro-aluminum-camlock-coupler-male-thread-09.webp)
+
+*Type B female threaded coupler for NPT fuel-line connections.*
+
 ## Material rules for fuel
 
 | Fuel | Recommended material | Why |

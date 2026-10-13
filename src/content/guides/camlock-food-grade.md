@@ -13,6 +13,14 @@ updated: 2026-08-25
 
 Camlock couplings move a lot of food-grade liquids — milk, juice, edible oil, syrup, wine and beer — through transfer and filling lines. Food service changes the selection rules: the material has to survive caustic washdowns, the gasket has to be food-contact safe, and the whole fitting has to stay clean. Here is how to spec camlocks for food and beverage duty, including the homebrew market where stainless camlocks are now standard kit.
 
+![Stainless steel camlock coupler for sanitary food and beverage transfer](/images/products/camlockpro-stainless-camlock-coupling-02.webp)
+
+*Stainless coupler — the washdown and CIP-capable choice for food duty.*
+
+![Stainless type C camlock coupler on a food transfer hose end](/images/products/camlockpro-stainless-camlock-coupler-hose-shank-08.webp)
+
+*Type C stainless on a hose end for milk, juice and beer transfer.*
+
 ## Material: stainless is the food-service default
 
 - **304 stainless steel** — the standard food-grade material: corrosion-resistant, handles hot caustic and acid cleaners, no taste transfer. Spec 304 for milk, juice, oil, syrup and brewing.

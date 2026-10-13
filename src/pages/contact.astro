@@ -19,7 +19,7 @@ import { SITE } from '../config';
       <div class="cp-info">
         <h2>Direct contact</h2>
         <p class="cp-info__item"><strong>Email:</strong> <a href={`mailto:${SITE.inquiryEmail}`}>{SITE.inquiryEmail}</a></p>
-        <p class="cp-info__item"><strong>Phone / WhatsApp:</strong> <a href="tel:+8613710860663">+86 137 1086 0663</a></p>
+        <p class="cp-info__item"><strong>Phone / WhatsApp:</strong> <a href={SITE.telHref}>{SITE.phone}</a></p>
         <p class="cp-info__item"><strong>Response time:</strong> within one business day, with figures where possible.</p>
         <h2 class="cp-info__h2">What to send</h2>
         <ul class="cp-info__list">
@@ -77,7 +77,7 @@ import { SITE } from '../config';
           }
         })
         .catch(function () {
-          if (status) { status.textContent = 'Network error — please email cj226144@gmail.com directly.'; status.style.color = '#dc2626'; }
+          if (status) { status.textContent = 'Network error — please email us directly (address above).'; status.style.color = '#dc2626'; }
         })
         .finally(function () {
           if (btn) { btn.disabled = false; btn.textContent = 'Send RFQ'; }

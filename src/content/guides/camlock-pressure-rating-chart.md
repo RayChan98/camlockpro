@@ -17,6 +17,14 @@ This guide gives you the working pressure ratings for standard camlock couplings
 
 All figures here refer to standard-profile cam-and-groove couplings made to A-A-59326 geometry, fitted with new, correctly seated gaskets, and tested with water at ambient temperature. Before you trade one alloy for another, review the [material guide](/guides/camlock-material-guide/) — and confirm your size designation in the [size chart](/guides/camlock-size-chart/).
 
+![Aluminum camlock coupler rated by size for working pressure](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Working pressure comes from size and gasket condition on couplers like this.*
+
+![Aluminum threaded camlock coupler where the thread limits pressure](/images/products/camlockpro-aluminum-camlock-coupler-male-thread-09.webp)
+
+*Threaded types — the NPT/BSPT end often sets the pressure ceiling.*
+
 ## Standard Working Pressure by Material and Size
 
 The table below lists standard working pressures for the four most common camlock body materials across the full size range. These are the figures most manufacturers publish for standard-profile couplings in new condition at ambient temperature (roughly 20–23 °C / 68–73 °F), with a standard nitrile gasket correctly seated.

@@ -16,6 +16,22 @@ This guide breaks the choice down the way engineers actually think about it: str
 
 One rule before we start: **the material choice and the gasket choice are made together, never separately.** A stainless coupling with a Buna-N gasket will fail in hot water that a Viton-gasketed aluminum coupling would survive. Our [gasket selection](/guides/camlock-gasket-selection/) guide covers the sealing half of the decision; here we focus on the body material.
 
+![Aluminum camlock coupling — the general-purpose material](/images/products/camlockpro-aluminum-camlock-coupling-01.webp)
+
+*Aluminum — most widely used, light and economical for water and general transfer.*
+
+![Stainless steel camlock coupling for corrosion-resistant duty](/images/products/camlockpro-stainless-camlock-coupling-02.webp)
+
+*Stainless 304/316 — corrosion resistance for food, chemical and marine duty.*
+
+![Brass camlock coupling for fuel and threaded strength](/images/products/camlockpro-brass-camlock-coupling-10.webp)
+
+*Brass — threaded strength and fuel/gas line service.*
+
+![Polypropylene camlock coupling for chemical transfer](/images/products/camlockpro-polypropylene-camlock-coupling-03.webp)
+
+*Polypropylene — chemical-resistant plastic at low pressure.*
+
 ## Camlock Materials at a Glance
 
 | Material | Relative price | Relative weight | Best at | Weakest at |
